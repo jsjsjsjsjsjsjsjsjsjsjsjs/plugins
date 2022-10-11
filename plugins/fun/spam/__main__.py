@@ -27,7 +27,7 @@ S_LOG = userge.getCLogger(__name__)
     'examples': "**For Text:** `{tr}spam 2 | Durov will ban me for using this plugin`"})
 async def spam(message: Message):
     replied = message.reply_to_message
-    delay = str(0.1)
+    delay = str(0.001)
     is_str = "|" in message.input_str
     if replied and replied.media and not is_str:
         if not os.path.isdir(config.Dynamic.DOWN_PATH):
