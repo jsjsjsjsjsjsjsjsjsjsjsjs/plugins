@@ -2,7 +2,7 @@
 
 
 import aiohttp
-import base64
+import base64, InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery
 from pyrogram import enums
 from userge import userge, Message
 import time, os, math, requests, re, json
@@ -55,9 +55,19 @@ async def _sshh(message: Message):
               f"**━━━━━━━━━━━━━━━━**\n"
               f"**Exp Until:** `{later}`\n"
               f"**━━━━━━━━━━━━━━━━**\n"),
+         
         disable_web_page_preview=True,
         parse_mode=enums.ParseMode.MARKDOWN
+        InlineKeyboardMarkup([
+                [
+                    InlineKeyboardButton(text="👥 UsergeTeam", url="https://github.com/UsergeTeam"),
+                    InlineKeyboardButton(text="🧪 Repo", url=botpm.UPSTREAM_REPO)
+                ],
+                [InlineKeyboardButton(text="🎖 GNU GPL v3.0", url=copy_)]
+            ])
+            await send_start_text(msg, text, path, markup)
     )
+
 
 
 
