@@ -2,7 +2,7 @@
 
 
 import aiohttp
-import base64, InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery
+import base64
 from pyrogram import enums
 from userge import userge, Message
 import time, os, math, requests, re, json
