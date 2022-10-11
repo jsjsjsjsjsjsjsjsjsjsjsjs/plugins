@@ -29,8 +29,8 @@ async def _sshh(message: Message):
     async with aiohttp.ClientSession() as requests:
         data = await requests.get(url)
         x = await data.text()
-    status = x['status']
-    if status != "success":
+    #status = x['status']
+    if x != "success":
         await message.edit("Kebanyakn coli ente...!`")
         return
     today = DT.date.today()
