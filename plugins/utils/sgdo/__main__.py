@@ -7,6 +7,8 @@ from pyrogram import enums
 from userge import userge, Message
 import time, os, math, requests, re, json
 import datetime as DT
+from pyrogram.types import (
+    Message, InlineKeyboardMarkup, InlineKeyboardButton)
 
 
 
@@ -65,7 +67,16 @@ async def _sshh(message: Message):
          
         disable_web_page_preview=True,
         parse_mode=enums.ParseMode.MARKDOWN
-     
+        reply_markup=InlineKeyboardMarkup([[
+        InlineKeyboardButton(
+                "🗂 Source Code",
+                url="https://github.com/UserGeTeam/UserGe-Assistant"
+            ),
+        InlineKeyboardButton(
+                "😎 Use Inline!",
+                switch_inline_query=""
+            )
+        ]])
     )
 
 
