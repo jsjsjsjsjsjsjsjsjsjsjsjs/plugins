@@ -4,24 +4,10 @@
 import aiohttp
 import base64
 from pyrogram import enums
-from userge import filters
 from userge import userge, Message
 import time, os, math, requests, re, json
 import datetime as DT
 
-
-@userge.on_filters(filters.group & filters.new_chat_members, group=1,
-                   propagate=True, check_restrict_perm=True)
-async def gban_at_entry(message: Message):
-    """ handle Sgdo """
-    if isinstance(HANDLER, Handler):
-        try:
-            for user in message.new_chat_members:
-                if await is_whitelist(user.id):
-                    continue
-                await HANDLER.handle(message, user)
-        except (ChatAdminRequired, UserAdminInvalid):
-            pass
 
 
 @userge.on_cmd(
@@ -79,9 +65,8 @@ async def _sshh(message: Message):
          
         disable_web_page_preview=True,
         parse_mode=enums.ParseMode.MARKDOWN
-        
+     
     )
-
 
 
 
@@ -91,10 +76,14 @@ async def _sshh(message: Message):
         'description': "kegabutan yg haqiqi",
         'usage': "{tr}trojan [user]:[exp]"})
 async def _ip_look_up(message: Message):
-    await message.edit("`Please Wait Creating Account ...`")
-    if not message.input_str:
-        await message.edit("Input Data Frist!`")
+    replied = message.input_str
+    if not replied:
+        await message.err("```Isi user:exp blok....```", del_in=5)
         return
+    if ":" not in replied:
+        await message.err("```Format harus user:exp...```", del_in=5) 
+        return
+    await message.edit("```Sedang membuat akun, tunggu...```")
     u = message.input_str.strip().split(':')[0]
     p = message.input_str.strip().split(':')[1]
     url = (
@@ -133,10 +122,14 @@ async def _ip_look_up(message: Message):
         'description': "kegabutan yg haqiqi",
         'usage': "{tr}trojanws [user]:[exp]"})
 async def _trojanws(message: Message):
-    await message.edit("`Please Wait Creating Account ...`")
-    if not message.input_str:
-        await message.edit("Input Data Frist!`")
+    replied = message.input_str
+    if not replied:
+        await message.err("```Isi user:exp blok....```", del_in=5)
         return
+    if ":" not in replied:
+        await message.err("```Format harus user:exp...```", del_in=5) 
+        return
+    await message.edit("```Sedang membuat akun, tunggu...```")
     u = message.input_str.strip().split(':')[0]
     p = message.input_str.strip().split(':')[1]
     url = (
@@ -187,10 +180,14 @@ async def _trojanws(message: Message):
         'description': "kegabutan yg haqiqi",
         'usage': "{tr}trojango [user]:[exp]"})
 async def _trojango(message: Message):
-    await message.edit("`Please Wait Creating Account ...`")
-    if not message.input_str:
-        await message.edit("Input Data Frist!`")
+    replied = message.input_str
+    if not replied:
+        await message.err("```Isi user:exp blok....```", del_in=5)
         return
+    if ":" not in replied:
+        await message.err("```Format harus user:exp...```", del_in=5) 
+        return
+    await message.edit("```Sedang membuat akun, tunggu...```")
     u = message.input_str.strip().split(':')[0]
     p = message.input_str.strip().split(':')[1]
     url = (
@@ -233,10 +230,14 @@ async def _trojango(message: Message):
         'description': "kegabutan yg haqiqi",
         'usage': "{tr}vmess1 [user]:[exp]"})
 async def _vmess1(message: Message):
-    await message.edit("`Please Wait Creating Account ...`")
-    if not message.input_str:
-        await message.edit("Input Data Frist!`")
+    replied = message.input_str
+    if not replied:
+        await message.err("```Isi user:exp blok....```", del_in=5)
         return
+    if ":" not in replied:
+        await message.err("```Format harus user:exp...```", del_in=5) 
+        return
+    await message.edit("```Sedang membuat akun, tunggu...```")
     u = message.input_str.strip().split(':')[0]
     p = message.input_str.strip().split(':')[1]
     url = (
@@ -295,10 +296,14 @@ async def _vmess1(message: Message):
         'description': "kegabutan yg haqiqi",
         'usage': "{tr}vless [user]:[exp]"})
 async def _vless(message: Message):
-    await message.edit("`Please Wait Creating Account ...`")
-    if not message.input_str:
-        await message.edit("Input Data Frist!`")
+    replied = message.input_str
+    if not replied:
+        await message.err("```Isi user:exp blok....```", del_in=5)
         return
+    if ":" not in replied:
+        await message.err("```Format harus user:exp...```", del_in=5) 
+        return
+    await message.edit("```Sedang membuat akun, tunggu...```")
     u = message.input_str.strip().split(':')[0]
     p = message.input_str.strip().split(':')[1]
     url = (
@@ -352,10 +357,14 @@ async def _vless(message: Message):
         'description': "kegabutan yg haqiqi",
         'usage': "{tr}vmess [user]:[exp]"})
 async def _vmess(message: Message):
-    await message.edit("`Please Wait Creating Account ...`")
-    if not message.input_str:
-        await message.edit("Input Data Frist!`")
+    replied = message.input_str
+    if not replied:
+        await message.err("```Isi user:exp blok....```", del_in=5)
         return
+    if ":" not in replied:
+        await message.err("```Format harus user:exp...```", del_in=5) 
+        return
+    await message.edit("```Sedang membuat akun, tunggu...```")
     u = message.input_str.strip().split(':')[0]
     p = message.input_str.strip().split(':')[1]
     url = (
