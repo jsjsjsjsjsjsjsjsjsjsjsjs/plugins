@@ -4,7 +4,7 @@
 import aiohttp
 import base64
 from pyrogram import enums
-from userge import filters
+from userge import filters, cus_filters
 from userge import userge, Message
 import time, os, math, requests, re, json
 import datetime as DT
