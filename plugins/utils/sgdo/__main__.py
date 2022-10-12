@@ -12,14 +12,18 @@ import datetime as DT
 
 @userge.on_cmd(
     "ssh", about={
-        'header': "Create Trojan Account",
+        'header': "Create SSH Account",
         'description': "kegabutan yg haqiqi",
         'usage': "{tr}ssh [user]:[exp]:[pw]"})
 async def _sshh(message: Message):
-    await message.edit("`Please Wait Creating Account ...`")
-    if not message.input_str:
-        await message.edit("Input Data Frist!`")
+    replied = message.input_str
+    if not replied:
+        await message.err("```Isi user:pw:exp blok....```", del_in=5)
         return
+    if ":" not in replied:
+        await message.err("```Format harus user:pw:exp...```", del_in=5) 
+        return
+    await message.edit("```Sedang membuat akun, tunggu...```")
     u = message.input_str.strip().split(':')[0]
     p = message.input_str.strip().split(':')[1]
     e = message.input_str.strip().split(':')[2]
