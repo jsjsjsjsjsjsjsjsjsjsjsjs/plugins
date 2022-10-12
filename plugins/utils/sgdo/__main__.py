@@ -4,14 +4,14 @@
 import aiohttp
 import base64
 from pyrogram import enums
-from userge import filters, cus_filters
+from userge import filters
 from userge import userge, Message
 import time, os, math, requests, re, json
 import datetime as DT
 
 
 
-@userge.on_message(filters.command("ssh") & cus_filters.auth_chats)
+@userge.on_filters(ssh & filters.private)  
 async def _sshh(message: Message):
     replied = message.input_str
     if not replied:
