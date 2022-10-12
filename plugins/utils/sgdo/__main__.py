@@ -77,7 +77,7 @@ async def _sshh(message: Message):
                 switch_inline_query=""
             )
         ]])
-    )
+    
 
 
 
