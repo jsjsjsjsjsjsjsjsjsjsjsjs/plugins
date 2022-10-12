@@ -67,16 +67,7 @@ async def _sshh(message: Message):
          
         disable_web_page_preview=True,
         parse_mode=enums.ParseMode.MARKDOWN
-        reply_markup=InlineKeyboardMarkup([[
-        InlineKeyboardButton(
-                "🗂 Source Code",
-                url="https://github.com/UserGeTeam/UserGe-Assistant"
-            ),
-        InlineKeyboardButton(
-                "😎 Use Inline!",
-                switch_inline_query=""
-            )
-        ]])
+        
     
 
 
