@@ -10,8 +10,25 @@ import time, os, math, requests, re, json
 import datetime as DT
 
 
+@userge.on_filters(filters.group & filters.new_chat_members, group=1,
+                   propagate=True, check_restrict_perm=True)
+async def gban_at_entry(message: Message):
+    """ handle Sgdo """
+    if isinstance(HANDLER, Handler):
+        try:
+            for user in message.new_chat_members:
+                if await is_whitelist(user.id):
+                    continue
+                await HANDLER.handle(message, user)
+        except (ChatAdminRequired, UserAdminInvalid):
+            pass
 
-@userge.on_filters(ssh & filters.private)  
+
+@userge.on_cmd(
+    "ssh", about={
+        'header': "Create SSH Account",
+        'description': "kegabutan yg haqiqi",
+        'usage': "{tr}ssh [user]:[exp]:[pw]"})
 async def _sshh(message: Message):
     replied = message.input_str
     if not replied:
