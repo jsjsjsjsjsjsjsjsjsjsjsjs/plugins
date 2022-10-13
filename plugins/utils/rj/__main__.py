@@ -6,7 +6,7 @@ import time, os, math, requests, re, json
 import datetime as DT
 import requests as req
 
-header = requests.headers.update({"AUTH_KEY":"meki"})
+header = {"AUTH_KEY":"meki"}
 
 @userge.on_cmd(
     "vmess", about={
