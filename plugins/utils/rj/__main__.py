@@ -46,7 +46,7 @@ async def vmess(msg: Message):
               path = z['path']
               today = DT.date.today()
               later = today + DT.timedelta(days=int(p))
-              await msg.edit(
+              await msg.edit()
             out_str = (
               f"**━━━━━━━━━━━━━━━━**\n"
                   f" **⟨ VMESS ⟩**\n"
@@ -65,6 +65,6 @@ async def vmess(msg: Message):
                   f"**» `{x[1].strip()}`\n"
                   f"**━━━━━━━━━━━━━━━━**\n"
                   f"** Expired :** `{later}`\n"
-                  f"**━━━━━━━━━━━━━━━━**"),
+                  f"**━━━━━━━━━━━━━━━━**"
         )
         await msg.edit(out_str)
