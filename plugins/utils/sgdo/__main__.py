@@ -370,7 +370,7 @@ async def _vmess(message: Message):
         f"http://rajasa-v.bhm.my.id:6969/create-vmess?user={u}&exp={p}"
     )
     async with aiohttp.ClientSession() as requests:
-        data = await requests.get(url, auth=('meki')))
+        data = await requests.get(url, auth=('meki'))
         xx = await data.text()
     #status = x['status']
     if xx != "200":
