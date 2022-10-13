@@ -20,8 +20,9 @@ requests.headers.update({"AUTH_KEY":"meki"})
         'header': "Create VMESS Account",
         'description': "kegabutan yg haqiqi",
         'usage': "{tr}vmess [user]:[exp]"})
-async def _vmess(message: Message):
-    replied = message.input_str
+async def vmess(msg: Message):
+    """vmess account"""
+    replied = message.input_str 
     if not replied:
         await message.err("```Isi user:exp blok....```", del_in=5)
         return
@@ -29,29 +30,31 @@ async def _vmess(message: Message):
         await message.err("```Format harus user:exp...```", del_in=5) 
         return
     await message.edit("```Sedang membuat akun, tunggu...```")
-    u = message.input_str.strip().split(':')[0]
-    p = message.input_str.strip().split(':')[1]
-    param = f":6969/create-vmess?user={u}&exp={p}"
-    url = ("http://rajasa-v.bhm.my.id"+param)
-    xx = requests.get("http://rajasa-v.bhm.my.id"+param).text()
-    if xx != "error":
-        #await message.edit("`Aing Lieur Gays!`")
-        #return
-        x = xx.replace("[","").replace("]","").replace("'",
+    async with aiohttp.ClientSession() as ses:
+        u = replied.strip().split(':')[0]
+	p = replied.strip().split(':')[1]
+        url = f"http://rajasa-v.bhm.my.id:6969/create-vmess?user={u}&exp={p}"
+        async with ses.get(url) as resp:
+            if resp.status != 200:
+                return await msg.err("Unable to process your request")
+            xx = await resp.text()
+        if xx['status_code'] == 0:
+            x = xx.replace("[","").replace("]","").replace("'",
 "").split(",")
-        z = base64.b64decode(x[0].replace("vmess://","")).decode("ascii")
-        z = json.loads(z)
-        z1 = base64.b64decode(x[1].replace("vmess://","")).decode("ascii")
-        z1 = json.loads(z1)
-        porttls = z['port']
-        porthttp = z1['port']
-        domain = z['add']
-        uuid = z['id']
-        path = z['path']
-        today = DT.date.today()
-        later = today + DT.timedelta(days=int(p))
-        await message.edit(
-        text=(f"**━━━━━━━━━━━━━━━━**\n"
+            z = base64.b64decode(x[0].replace("vmess://","")).decode("ascii")
+            z = json.loads(z)
+            z1 = base64.b64decode(x[1].replace("vmess://","")).decode("ascii")
+            z1 = json.loads(z1)
+            porttls = z['port']
+            porthttp = z1['port']
+            domain = z['add']
+            uuid = z['id']
+            path = z['path']
+            today = DT.date.today()
+            later = today + DT.timedelta(days=int(p))
+            return await msg.err(dumps(xx['status_error']))
+        out_str = (
+            f"**━━━━━━━━━━━━━━━━**\n"
                   f" **⟨ VMESS ⟩**\n"
                   f"**━━━━━━━━━━━━━━━━**\n"
                   f"**» Remarks :** `{u}`\n"
@@ -68,8 +71,6 @@ async def _vmess(message: Message):
                   f"**» `{x[1].strip()}`\n"
                   f"**━━━━━━━━━━━━━━━━**\n"
                   f"** Expired :** `{later}`\n"
-                  f"**━━━━━━━━━━━━━━━━**"),
-        disable_web_page_preview=True,
-        parse_mode=enums.ParseMode.MARKDOWN
-    )
-          
+                  f"**━━━━━━━━━━━━━━━━**"
+        )
+        await msg.edit(out_str)
