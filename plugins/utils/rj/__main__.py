@@ -27,7 +27,7 @@ async def vmess(msg: Message):
         u = replied.strip().split(':')[0]
         p = replied.strip().split(':')[1]
         param = f":6969/create-vmess?user={u}&exp={p}"
-        url = "http://rajasa-v.bhm.my.id:6969+param"
+        url = ("http://rajasa-v.bhm.my.id"+param)
         async with req.get(url, headers=header) as resp:
             if resp.status != 500:
                 return await msg.err("Unable to process your request")
