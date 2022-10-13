@@ -22,7 +22,7 @@ requests.headers.update({"AUTH_KEY":"meki"})
         'usage': "{tr}vmess [user]:[exp]"})
 async def vmess(msg: Message):
     """vmess account"""
-    replied = message.input_str 
+    replied = msg.input_str 
     if not replied:
         await message.err("```Isi user:exp blok....```", del_in=5)
         return
