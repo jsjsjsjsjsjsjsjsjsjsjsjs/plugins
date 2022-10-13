@@ -10,7 +10,7 @@ from pyrogram.types import (
     ReplyKeyboardMarkup, InlineKeyboardMarkup, InlineKeyboardButton
 )
 
-@app.on_message(filters.command('asu'))
+@userge.on_message(filters.command('asu'))
 async def atendente(client, message):
     atendente=InlineKeyboardMarkup(
         [
