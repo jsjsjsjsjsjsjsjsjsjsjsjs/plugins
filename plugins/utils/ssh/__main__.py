@@ -31,8 +31,8 @@ async def ssh(msg: Message):
         u = replied.strip().split(':')[0]
         p = replied.strip().split(':')[1]
         e = replied.strip().split(':')[2]
-        domain = "apik2-ws.bhm.my.id"
-        domain1 = "apik2-wsnsque.keongdns.my.id"
+        domain = f"apik2-ws.bhm.my.id"
+        domain1 = f"apik2-wsnsque.keongdns.my.id"
         param = f":6969/adduser/exp??user={u}&password={p}&exp={e}"
         url = ("http://{domain}"+param)
         async with req.get(url, headers=header) as resp:
