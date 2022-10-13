@@ -30,7 +30,7 @@ async def vmess(msg: Message):
         url = ("http://rajasa-v.bhm.my.id"+param)
         async with req.get(url, headers=header) as resp:
             if resp.status != "error":
-                return await msg.err("Unable to process your request")
+            return 
             xx = await resp.text()
        # if xx['status_code'] == 0:
             x = xx.replace("[","").replace("]","").replace("'",
