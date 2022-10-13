@@ -6,7 +6,7 @@ import time, os, math, requests, re, json
 import datetime as DT
 import requests as req
 from pyrogram import Client, filters
-from telethon import *
+
 
 header = {"AUTH_KEY":"meki"}
 
