@@ -24,12 +24,12 @@ async def vmess(msg: Message):
     """vmess account"""
     replied = msg.input_str 
     if not replied:
-        await message.err("```Isi user:exp blok....```", del_in=5)
+        await msg.err("```Isi user:exp blok....```", del_in=5)
         return
     if ":" not in replied:
-        await message.err("```Format harus user:exp...```", del_in=5) 
+        await msg.err("```Format harus user:exp...```", del_in=5) 
         return
-    await message.edit("```Sedang membuat akun, tunggu...```")
+    await msg.edit("```Sedang membuat akun, tunggu...```")
     async with aiohttp.ClientSession() as ses:
         u = replied.strip().split(':')[0]
         p = replied.strip().split(':')[1]
