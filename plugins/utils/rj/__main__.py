@@ -31,24 +31,24 @@ async def vmess(msg: Message):
         async with req.get(url, headers=header) as resp:
             if resp.status != "error":
             #return 
-            xx = await resp.text()
+              xx = await resp.text()
        # if xx['status_code'] == 0:
-            x = xx.replace("[","").replace("]","").replace("'",
+              x = xx.replace("[","").replace("]","").replace("'",
 "").split(",")
-            z = base64.b64decode(x[0].replace("vmess://","")).decode("ascii")
-            z = json.loads(z)
-            z1 = base64.b64decode(x[1].replace("vmess://","")).decode("ascii")
-            z1 = json.loads(z1)
-            porttls = z['port']
-            porthttp = z1['port']
-            domain = z['add']
-            uuid = z['id']
-            path = z['path']
-            today = DT.date.today()
-            later = today + DT.timedelta(days=int(p))
-            await msg.err(dumps(xx['status_error']))
-        out_str = (
-            f"**━━━━━━━━━━━━━━━━**\n"
+              z = base64.b64decode(x[0].replace("vmess://","")).decode("ascii")
+              z = json.loads(z)
+              z1 = base64.b64decode(x[1].replace("vmess://","")).decode("ascii")
+              z1 = json.loads(z1)
+              porttls = z['port']
+              porthttp = z1['port']
+              domain = z['add']
+              uuid = z['id']
+              path = z['path']
+              today = DT.date.today()
+              later = today + DT.timedelta(days=int(p))
+              await msg.err(dumps(xx['status_error']))
+            out_str = (
+              f"**━━━━━━━━━━━━━━━━**\n"
                   f" **⟨ VMESS ⟩**\n"
                   f"**━━━━━━━━━━━━━━━━**\n"
                   f"**» Remarks :** `{u}`\n"
@@ -66,5 +66,5 @@ async def vmess(msg: Message):
                   f"**━━━━━━━━━━━━━━━━**\n"
                   f"** Expired :** `{later}`\n"
                   f"**━━━━━━━━━━━━━━━━**"
-        )
-        await msg.edit(out_str)
+             )
+             await msg.edit(out_str)
