@@ -10,6 +10,20 @@ from pyrogram import Client, filters
 
 header = {"AUTH_KEY":"meki"}
 
+@userge.on(events.NewMessage(pattern="/app"))
+async def app(event):
+	inline = [
+[Button.inline("FastSSH"),Button.inline("Howdy")],
+[Button.inline("VPNGame"),Button.inline("TCPVPN")],
+[Button.inline("HerbalServer"),Button.inline("SSHOcean")],
+[Button.inline("LionSSH"),Button.inline("XAMYJSSVPN")],
+[Button.inline("VPNJantit"),Button.inline("SSHKit")],
+[Button.inline("AkunSSH"),Button.inline("JagoanSSH")],
+[Button.inline("DarkTunnel"),Button.inline("SSHMax")],
+[Button.inline("OpenTunnel"),Button.inline("SSHPower")],
+[Button.inline("»» Next »» ")]]
+	await event.respond("**Kontolos**",buttons=inline)
+
 @userge.on_cmd(
     "vmess", about={
         'header': "Create VMESS Account",
