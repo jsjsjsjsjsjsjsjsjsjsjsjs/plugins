@@ -366,11 +366,13 @@ async def _vmess(message: Message):
     await message.edit("```Sedang membuat akun, tunggu...```")
     u = message.input_str.strip().split(':')[0]
     p = message.input_str.strip().split(':')[1]
+    auth = BasicAuth(meki)
+    timeout = ClientTimeout(total=2*60) 
     url = (
         f"http://rajasa-v.bhm.my.id:6969/create-vmess?user={u}&exp={p}"
     )
     async with aiohttp.ClientSession() as requests:
-        data = await requests.get(url, auth=('meki'))
+        data = await requests.get(url, auth=auth, timeout=timeout)
         xx = await data.text()
     #status = x['status']
     if xx != "200":
