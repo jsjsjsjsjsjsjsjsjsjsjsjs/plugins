@@ -27,7 +27,7 @@ async def vmess(msg: Message):
         u = replied.strip().split(':')[0]
         p = replied.strip().split(':')[1]
         param = f":6969/create-vmess?user={u}&exp={p}"
-        url = ("http://rajasa-v.bhm.my.id"+param)
+        url = ("http://rkr0.autocf.site"+param)
         async with req.get(url, headers=header) as resp:
             if resp.status != "error":
             #return 
@@ -46,7 +46,7 @@ async def vmess(msg: Message):
               path = z['path']
               today = DT.date.today()
               later = today + DT.timedelta(days=int(p))
-              await message.edit(
+              await msg.edit(
         text=(f"**━━━━━━━━━━━━━━━━**\n"
                   f" **⟨ VMESS ⟩**\n"
                   f"**━━━━━━━━━━━━━━━━**\n"
