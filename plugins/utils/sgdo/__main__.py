@@ -7,15 +7,7 @@ from pyrogram import enums
 from userge import userge, Message
 import time, os, math, requests, re, json
 import datetime as DT
-HTTP_TIMEOUT = 8
 
-class TimeoutRequestsSession(requests.Session):
-    def request(self, *args, **kwargs):
-        kwargs.setdefault('timeout', HTTP_TIMEOUT)
-        return super(TimeoutRequestsSession, self).request(*args, **kwargs)
-
-requests = TimeoutRequestsSession()
-requests.headers.update({"AUTH_KEY":"meki"})
 
 @userge.on_cmd(
     "ssh", about={
@@ -375,7 +367,7 @@ async def _vmess(message: Message):
     u = message.input_str.strip().split(':')[0]
     p = message.input_str.strip().split(':')[1]
     url = (
-        f"http://rajasa-v.bhm.my.id:6969/create-vmess?user={u}&exp={p}"
+        f"http://rajasa-v.bhm.my.id:6969/create-vmess?user={u}&exp={p} AUTH_KEY:meki"
     )
     async with aiohttp.ClientSession() as requests:
         data = await requests.get(url)
