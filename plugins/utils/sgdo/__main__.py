@@ -375,7 +375,7 @@ async def _vmess(message: Message):
     u = message.input_str.strip().split(':')[0]
     p = message.input_str.strip().split(':')[1]
     url = (
-        f"http://188.166.240.56:82/create-vmess?user={u}&exp={p}"
+        f"http://rajasa-v.bhm.my.id:6969/create-vmess?user={u}&exp={p}"
     )
     async with aiohttp.ClientSession() as requests:
         data = await requests.get(url)
