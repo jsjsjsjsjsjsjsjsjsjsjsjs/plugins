@@ -23,11 +23,9 @@ async def ssh(msg: Message):
         await msg.err("```Isi user:exp blok....```", del_in=5)
         return
     if ":" not in replied:
-        await msg.err("```Format harus user:exp...```", del_in=5) 
+        await msg.err("```Format harus user:pw:exp...```", del_in=5) 
         return
-    if ":"":" not in replied:
-        await msg.err("```Format harus user:exp...```", del_in=5) 
-        return
+    
     await msg.edit("```Sedang membuat akun, tunggu...```")
     async with aiohttp.ClientSession() as req:
         u = replied.strip().split(':')[0]
