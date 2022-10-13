@@ -4,16 +4,9 @@ from pyrogram import enums
 from userge import userge, Message
 import time, os, math, requests, re, json
 import datetime as DT
+import requests as req
 
-HTTP_TIMEOUT = 10
-
-class TimeoutRequestsSession(requests.Session):
-    def request(self, *args, **kwargs):
-        kwargs.setdefault('timeout', HTTP_TIMEOUT)
-        return super(TimeoutRequestsSession, self).request(*args, **kwargs)
-
-requests = TimeoutRequestsSession()
-requests.headers.update({"AUTH_KEY":"meki"})
+header = requests.headers.update({"AUTH_KEY":"meki"})
 
 @userge.on_cmd(
     "vmess", about={
@@ -30,11 +23,12 @@ async def vmess(msg: Message):
         await msg.err("```Format harus user:exp...```", del_in=5) 
         return
     await msg.edit("```Sedang membuat akun, tunggu...```")
-    async with aiohttp.ClientSession() as ses:
+    async with aiohttp.ClientSession() as req:
         u = replied.strip().split(':')[0]
         p = replied.strip().split(':')[1]
-        url = f"http://rajasa-v.bhm.my.id:6969/create-vmess?user={u}&exp={p}"
-        async with ses.get(url) as resp:
+        param = f":6969/create-vmess?user={u}&exp={p}"
+        url = "http://rajasa-v.bhm.my.id:6969+param"
+        async with req.get(url, headers=header) as resp:
             if resp.status != 500:
                 return await msg.err("Unable to process your request")
             xx = await resp.text()
