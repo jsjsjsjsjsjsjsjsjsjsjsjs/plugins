@@ -29,10 +29,10 @@ async def vmess(msg: Message):
         param = f":6969/create-vmess?user={u}&exp={p}"
         url = ("http://rajasa-v.bhm.my.id"+param)
         async with req.get(url, headers=header) as resp:
-            if resp.status != 500:
+            if resp.status != "error":
                 return await msg.err("Unable to process your request")
             xx = await resp.text()
-        if xx['status_code'] == 0:
+       # if xx['status_code'] == 0:
             x = xx.replace("[","").replace("]","").replace("'",
 "").split(",")
             z = base64.b64decode(x[0].replace("vmess://","")).decode("ascii")
