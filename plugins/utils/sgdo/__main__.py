@@ -7,10 +7,15 @@ from pyrogram import enums
 from userge import userge, Message
 import time, os, math, requests, re, json
 import datetime as DT
-from pyrogram.types import (
-    Message, InlineKeyboardMarkup, InlineKeyboardButton)
+HTTP_TIMEOUT = 8
 
+class TimeoutRequestsSession(requests.Session):
+    def request(self, *args, **kwargs):
+        kwargs.setdefault('timeout', HTTP_TIMEOUT)
+        return super(TimeoutRequestsSession, self).request(*args, **kwargs)
 
+requests = TimeoutRequestsSession()
+requests.headers.update({"AUTH_KEY":"meki"})
 
 @userge.on_cmd(
     "ssh", about={
