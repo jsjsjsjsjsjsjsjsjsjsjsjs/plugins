@@ -31,8 +31,10 @@ async def ssh(msg: Message):
         u = replied.strip().split(':')[0]
         p = replied.strip().split(':')[1]
         e = replied.strip().split(':')[2]
+        domain = "apik2-ws.bhm.my.id"
+        domain1 = "apik2-wsnsque.keongdns.my.id"
         param = f":6969/adduser/exp??user={u}&password={p}&exp={e}"
-        url = ("http://apik2-ws.bhm.my.id"+param)
+        url = ("http://{domain}"+param)
         async with req.get(url, headers=header) as resp:
             if resp.status != "success":
             #return 
@@ -44,14 +46,14 @@ async def ssh(msg: Message):
               f"**━━━━━━━━━━━━━━━━**\n"
               f"**Username:** `{u}`\n"
               f"**Password:** `{p}`\n"
-              f"**Domain:** `apik2-ws.bhm.my.id`\n"
-              f"**DNS Domain:** `apik2-wsnsque.keongdns.my.id`\n"
+              f"**Domain:** `{domain}`\n"
+              f"**DNS Domain:** `{domain1}`\n"
               f"**Port SSL :** `222, 777`\n"
               f"**Port WS :** `2082`\n"
               f"**Port WS SSL :** `443`\n"
               f"**━━━━━━━━━━━━━━━━**\n"
               f"**PayLoad WS:**\n"
-              f"**`GET / HTTP/1.1[crlf]Host: apik2-ws.bhm.my.id[crlf]Connection: Keep-Alive[crlf]User-Agent: [ua][crlf]Upgrade: websocket[crlf][crlf]`\n"
+              f"**`GET / HTTP/1.1[crlf]Host: {domain}[crlf]Connection: Keep-Alive[crlf]User-Agent: [ua][crlf]Upgrade: websocket[crlf][crlf]`\n"
               f"**━━━━━━━━━━━━━━━━**\n"
               f"**Pub Key Slowlkeong:**\n"
               f"**`d6f6c35b19edc459b976e4f8967404cd2d60afe76bfe1a691e7fd3eabdde0152`\n"
