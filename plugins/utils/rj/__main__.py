@@ -32,7 +32,7 @@ async def vmess(msg: Message):
     await message.edit("```Sedang membuat akun, tunggu...```")
     async with aiohttp.ClientSession() as ses:
         u = replied.strip().split(':')[0]
-	p = replied.strip().split(':')[1]
+        p = replied.strip().split(':')[1]
         url = f"http://rajasa-v.bhm.my.id:6969/create-vmess?user={u}&exp={p}"
         async with ses.get(url) as resp:
             if resp.status != 200:
