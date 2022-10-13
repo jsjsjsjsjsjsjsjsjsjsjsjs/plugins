@@ -6,4 +6,4 @@
 #
 # All rights reserved.
 
-""" Create rajasa Account """
+""" Create VMESS Account """
