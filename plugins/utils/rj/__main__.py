@@ -32,9 +32,12 @@ async def _vmess(message: Message):
     u = message.input_str.strip().split(':')[0]
     p = message.input_str.strip().split(':')[1]
     param = f":6969/create-vmess?user={u}&exp={p}"
-    r = requests.get("http://rajasa-v.bhm.my.id"+param)
-    xx = await r.text()
-    if xx != "error":
+    url = ("http://rajasa-v.bhm.my.id"+param)
+    async with aiohttp.ClientSession() as requests:
+        data = await requests.get(url)
+        xx = await data.text()
+    #status = x['status']
+    if xx != "200":
         #await message.edit("`Aing Lieur Gays!`")
         #return
         x = xx.replace("[","").replace("]","").replace("'",
