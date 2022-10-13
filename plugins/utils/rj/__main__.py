@@ -46,9 +46,8 @@ async def vmess(msg: Message):
               path = z['path']
               today = DT.date.today()
               later = today + DT.timedelta(days=int(p))
-              await msg.edit()
-            out_str = (
-              f"**━━━━━━━━━━━━━━━━**\n"
+              await message.edit(
+        text=(f"**━━━━━━━━━━━━━━━━**\n"
                   f" **⟨ VMESS ⟩**\n"
                   f"**━━━━━━━━━━━━━━━━**\n"
                   f"**» Remarks :** `{u}`\n"
@@ -65,6 +64,8 @@ async def vmess(msg: Message):
                   f"**» `{x[1].strip()}`\n"
                   f"**━━━━━━━━━━━━━━━━**\n"
                   f"** Expired :** `{later}`\n"
-                  f"**━━━━━━━━━━━━━━━━**"
+                  f"**━━━━━━━━━━━━━━━━**"),
+        disable_web_page_preview=True,
+        parse_mode=enums.ParseMode.MARKDOWN
         )
-        await msg.edit(out_str)
+        
