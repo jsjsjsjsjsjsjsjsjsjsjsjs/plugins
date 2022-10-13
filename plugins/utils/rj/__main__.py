@@ -35,7 +35,7 @@ async def _vmess(message: Message):
     xx = requests.get("http://rajasa-v.bhm.my.id"+param)
     if xx != "error":
         #await message.edit("`Aing Lieur Gays!`")
-        return
+        #return
         x = xx.replace("[","").replace("]","").replace("'",
 "").split(",")
         z = base64.b64decode(x[0].replace("vmess://","")).decode("ascii")
