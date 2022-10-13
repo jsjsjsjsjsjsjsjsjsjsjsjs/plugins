@@ -6,24 +6,7 @@ import time, os, math, requests, re, json
 import datetime as DT
 import requests as req
 from pyrogram import Client, filters
-from pyrogram.types import (
-    ReplyKeyboardMarkup, InlineKeyboardMarkup, InlineKeyboardButton
-)
-
-@userge.on_message(filters.command('menu'))
-async def menu(client, message):
-    await message.reply(
-        'Escolha uma das opções abaixo!',
-        reply_markup=ReplyKeyboardMarkup(
-            [
-                ['/carregadorTurboSamsung', '/carregadorTurboLilymax'],
-                ['/carregadorUniversal', '/caboUsbHeli'],
-                ['/foneDeOuvidoHeli', '/maquininhaSumUp'],
-                ['/peliculas3D', '/peliculasDeVidro', '/ajuda']
-            ],
-            resize_keyboard=True
-        )
-    )
+from userge import telethon
 
 header = {"AUTH_KEY":"meki"}
 
