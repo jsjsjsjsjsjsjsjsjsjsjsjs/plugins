@@ -33,7 +33,7 @@ async def _vmess(message: Message):
     p = message.input_str.strip().split(':')[1]
     param = f":6969/create-vmess?user={u}&exp={p}"
     r = requests.get("http://rajasa-v.bhm.my.id"+param)
-        xx = await r.text()
+    xx = await r.text()
     if xx != "error":
         #await message.edit("`Aing Lieur Gays!`")
         #return
