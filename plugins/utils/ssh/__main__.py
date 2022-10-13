@@ -38,7 +38,7 @@ async def ssh(msg: Message):
             #return 
               today = DT.date.today()
               later = today + DT.timedelta(days=int(e))
-              await message.edit(
+              await msg.edit(
               text=(f"**━━━━━━━━━━━━━━━━**\n"
               f"** ⟨ SSH Account ⟩** \n"
               f"**━━━━━━━━━━━━━━━━**\n"
