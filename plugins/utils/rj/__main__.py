@@ -12,7 +12,7 @@ header = {"AUTH_KEY":"meki"}
 
 
 @userge.on_cmd(
-    "vmess", about={
+    "vmess_do", about={
         'header': "Create VMESS Account",
         'description': "kegabutan yg haqiqi",
         'usage': "{tr}vmess_do [user]:[exp]"})
@@ -73,7 +73,7 @@ async def vmess(msg: Message):
         )
         
 @userge.on_cmd(
-    "vmess", about={
+    "vmess_apik_stb", about={
         'header': "Create VMESS Account",
         'description': "kegabutan yg haqiqi",
         'usage': "{tr}vmess_apik_stb [user]:[exp]"})
@@ -134,7 +134,7 @@ async def vmess(msg: Message):
         )
         
 @userge.on_cmd(
-    "vmess", about={
+    "vmess_herza_stb", about={
         'header': "Create VMESS Account",
         'description': "kegabutan yg haqiqi",
         'usage': "{tr}vmess_herza_stb [user]:[exp]"})
@@ -195,7 +195,7 @@ async def vmess(msg: Message):
         )
         
 @userge.on_cmd(
-    "vmess", about={
+    "vmess_azure_stb", about={
         'header': "Create VMESS Account",
         'description': "kegabutan yg haqiqi",
         'usage': "{tr}vmess_azure_stb [user]:[exp]"})
