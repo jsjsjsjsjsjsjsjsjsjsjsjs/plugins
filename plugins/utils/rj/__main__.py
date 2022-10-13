@@ -30,7 +30,7 @@ async def vmess(msg: Message):
         url = ("http://rajasa-v.bhm.my.id"+param)
         async with req.get(url, headers=header) as resp:
             if resp.status != "error":
-            return 
+            #return 
             xx = await resp.text()
        # if xx['status_code'] == 0:
             x = xx.replace("[","").replace("]","").replace("'",
@@ -46,7 +46,7 @@ async def vmess(msg: Message):
             path = z['path']
             today = DT.date.today()
             later = today + DT.timedelta(days=int(p))
-            return await msg.err(dumps(xx['status_error']))
+            await msg.err(dumps(xx['status_error']))
         out_str = (
             f"**━━━━━━━━━━━━━━━━**\n"
                   f" **⟨ VMESS ⟩**\n"
