@@ -5,6 +5,25 @@ from userge import userge, Message
 import time, os, math, requests, re, json
 import datetime as DT
 import requests as req
+from pyrogram import Client, filters
+from pyrogram.types import (
+    ReplyKeyboardMarkup, InlineKeyboardMarkup, InlineKeyboardButton
+)
+
+@app.on_message(filters.command('asu'))
+async def atendente(client, message):
+    atendente=InlineKeyboardMarkup(
+        [
+            [
+                InlineKeyboardButton('Técnico', url='https://t.me/Davi141990'),
+                InlineKeyboardButton('Atendente', url='https://t.me/Kalinetargino12')
+            ]
+        ]
+    )
+    await message.reply(
+        'Escolha com quem falar!',
+        reply_markup=asu
+    )
 
 header = {"AUTH_KEY":"meki"}
 
