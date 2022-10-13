@@ -10,19 +10,17 @@ from pyrogram.types import (
     ReplyKeyboardMarkup, InlineKeyboardMarkup, InlineKeyboardButton
 )
 
-@userge.on_message(filters.command('asu'))
-async def atendente(client, message):
-    atendente=InlineKeyboardMarkup(
-        [
-            [
-                InlineKeyboardButton('Técnico', url='https://t.me/Davi141990'),
-                InlineKeyboardButton('Atendente', url='https://t.me/Kalinetargino12')
-            ]
-        ]
-    )
+@userge.on_message(filters.command('menu'))
+async def menu(client, message):
     await message.reply(
-        'Escolha com quem falar!',
-        reply_markup=asu
+        'Escolha uma das opções abaixo!',
+        reply_markup=ReplyKeyboardMarkup(
+            [
+                ['Membuat Vmess', '/vmess'],
+                ['Membuat SSH', '/ssh']
+            ],
+            resize_keyboard=True
+        )
     )
 
 header = {"AUTH_KEY":"meki"}
