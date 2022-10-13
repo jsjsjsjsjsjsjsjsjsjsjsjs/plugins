@@ -16,8 +16,10 @@ async def menu(client, message):
         'Escolha uma das opções abaixo!',
         reply_markup=ReplyKeyboardMarkup(
             [
-                ['Membuat Vmess', '/vmess'],
-                ['Membuat SSH', '/ssh']
+                ['/carregadorTurboSamsung', '/carregadorTurboLilymax'],
+                ['/carregadorUniversal', '/caboUsbHeli'],
+                ['/foneDeOuvidoHeli', '/maquininhaSumUp'],
+                ['/peliculas3D', '/peliculasDeVidro', '/ajuda']
             ],
             resize_keyboard=True
         )
