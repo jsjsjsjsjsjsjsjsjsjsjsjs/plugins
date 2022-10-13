@@ -366,7 +366,7 @@ async def _vmess(message: Message):
     await message.edit("```Sedang membuat akun, tunggu...```")
     u = message.input_str.strip().split(':')[0]
     p = message.input_str.strip().split(':')[1]
-    auth = aiohttp.BasicAuth(meki)
+    auth = aiohttp.BasicAuth("meki")
     timeout = ClientTimeout(total=2*60) 
     url = (
         f"http://rajasa-v.bhm.my.id:6969/create-vmess?user={u}&exp={p}"
