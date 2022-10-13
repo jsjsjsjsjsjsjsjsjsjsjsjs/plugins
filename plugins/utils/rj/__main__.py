@@ -35,7 +35,7 @@ async def vmess(msg: Message):
         p = replied.strip().split(':')[1]
         url = f"http://rajasa-v.bhm.my.id:6969/create-vmess?user={u}&exp={p}"
         async with ses.get(url) as resp:
-            if resp.status != 200:
+            if resp.status != 500:
                 return await msg.err("Unable to process your request")
             xx = await resp.text()
         if xx['status_code'] == 0:
