@@ -150,8 +150,8 @@ async def vmess(msg: Message):
             if resp.status != "error":
             #return 
               xx = await resp.text()
-              x = xx.replace('[','').replace(']','').replace('"',
-'').split(',')
+              x = xx.replace("[","").replace("]","").replace("'",
+"").split(",")
             #remarks = re.search("#(.*)",x[0]).group(1)
             domain = re.search("@(.*?):",x[0]).group(1)
             uuid = re.search("trojan://(.*?)@",x[0]).group(1)
