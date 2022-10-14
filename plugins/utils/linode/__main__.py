@@ -45,7 +45,6 @@ async def ssh(msg: Message):
               f"**Username:** `{u}`\n"
               f"**Password:** `{p}`\n"
               f"**Domain:** `{domain}`\n"
-              f"**DNS Domain:** `{domain1}`\n"
               f"**Port SSL :** `222, 447`\n"
               f"**Port WS :** `80`\n"
               f"**Port WS SSL :** `443`\n"
