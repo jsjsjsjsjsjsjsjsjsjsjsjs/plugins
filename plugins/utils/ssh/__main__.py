@@ -34,7 +34,7 @@ async def ssh(msg: Message):
         domain = f"apik2-ws.bhm.my.id"
         domain1 = f"apik2-wsnsque.keongdns.my.id"
         param = f":6969/adduser/exp??user={u}&password={p}&exp={e}"
-        url = ("http://domain"+param)
+        url = ("http://(domain)"+param)
         async with req.get(url, headers=header) as resp:
             if resp.status != "success":
             #return 
