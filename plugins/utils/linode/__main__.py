@@ -152,7 +152,7 @@ async def vmess(msg: Message):
               xx = await resp.text()
               x = xx.replace('[','').replace(']','').replace('"',
 '').split(',')
-            remarks = re.search("#(.*)",x[0]).group(1)
+            #remarks = re.search("#(.*)",x[0]).group(1)
             domain = re.search("@(.*?):",x[0]).group(1)
             uuid = re.search("trojan://(.*?)@",x[0]).group(1)
         #port = re.search(domain+":(.*?)",x[0]).group(1)
