@@ -158,7 +158,7 @@ async def vmess(msg: Message):
         #port = re.search(domain+":(.*?)",x[0]).group(1)
             today = DT.date.today()
             later = today + DT.timedelta(days=int(p))
-            await message.edit(
+            await msg.edit(
         text=(f"**━━━━━━━━━━━━━━━━**\n"
               f"** ⟨ Trojan-ws ⟩** \n"
               f"**━━━━━━━━━━━━━━━━**\n"
