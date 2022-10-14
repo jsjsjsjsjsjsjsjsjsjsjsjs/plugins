@@ -123,7 +123,7 @@ async def vmess(msg: Message):
         parse_mode=enums.ParseMode.MARKDOWN
         )
         
- @userge.on_cmd(
+@userge.on_cmd(
     "trojan_lin", about={
         'header': "Create TROJAN Account",
         'description': "kegabutan yg haqiqi",
