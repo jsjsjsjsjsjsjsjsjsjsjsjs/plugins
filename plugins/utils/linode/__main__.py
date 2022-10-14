@@ -117,6 +117,9 @@ async def vmess(msg: Message):
                   f" **Vmess HTTP link :**\n"
                   f"**» `{x[1].strip()}`\n"
                   f"**━━━━━━━━━━━━━━━━**\n"
+                  f" **Vmess GRPC link :**\n"
+                  f"**» `{x[2].strip()}`\n"
+                  f"**━━━━━━━━━━━━━━━━**\n"
                   f"** Expired :** `{later}`\n"
                   f"**━━━━━━━━━━━━━━━━**"),
         disable_web_page_preview=True,
