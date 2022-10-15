@@ -24,9 +24,7 @@ async def _sshh(message: Message):
     if ":" not in replied:
         await message.err("```Format harus user:pw:exp...```", del_in=5) 
         return
-    if ":"":" not in replied:
-        await message.err("```Format harus user:pw:exp...```", del_in=5) 
-        return
+    
     await message.edit("```Sedang membuat akun, tunggu...```")
     u = message.input_str.strip().split(':')[0]
     p = message.input_str.strip().split(':')[1]
