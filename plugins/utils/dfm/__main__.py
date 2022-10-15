@@ -64,10 +64,10 @@ async def _sshh(message: Message):
     )
 
 @userge.on_cmd(
-    "ssh_do", about={
+    "ssh_lin2", about={
         'header': "Create SSH Account",
         'description': "kegabutan yg haqiqi",
-        'usage': "{tr}ssh_do [user]:[exp]:[pw]"})
+        'usage': "{tr}ssh_lin2 [user]:[exp]:[pw]"})
 async def _sshh(message: Message):
     replied = message.input_str
     if not replied:
