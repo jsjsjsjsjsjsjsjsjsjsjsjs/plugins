@@ -9,10 +9,10 @@
 from pyrogram import filters
 from pyrogram.types import (
     Message, InlineKeyboardMarkup, InlineKeyboardButton)
-from userge import bot
 
 
-@bot.on_message(filters.command("tepo") & cus_filters.auth_chats)
+
+@userge.on_message(filters.command("tepo") & cus_filters.auth_chats)
 async def _rules(_, message: Message):
     replied = message.reply_to_message
     if replied:
@@ -44,7 +44,7 @@ async def _rules(_, message: Message):
             ]
         ]
     )
-    await bot.send_message(message.chat.id,
+    await userge.send_message(message.chat.id,
                            text=("**Welcome**\n"
                                  "__Check out our channels and Repo's 🤘__"),
                            reply_to_message_id=msg_id,
