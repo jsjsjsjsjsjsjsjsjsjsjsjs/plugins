@@ -34,7 +34,7 @@ async def _sshh(message: Message):
         x = await data.text()
     #status = x['status']
     if x != "success":
-        await message.edit("Kebanyakn coli ente...!`")
+        #await message.edit("Kebanyakn coli ente...!`")
         return
     today = DT.date.today()
     later = today + DT.timedelta(days=int(e))
