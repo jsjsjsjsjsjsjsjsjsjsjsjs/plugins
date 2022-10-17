@@ -9,7 +9,7 @@
 from pyrogram import filters
 from pyrogram.types import (
     Message, InlineKeyboardMarkup, InlineKeyboardButton)
-
+from userge import userge
 
 
 @userge.on_message(filters.command("tepo") & cus_filters.auth_chats)
