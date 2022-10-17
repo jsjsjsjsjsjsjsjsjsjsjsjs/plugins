@@ -12,7 +12,7 @@ from pyrogram.types import (
 from userge import userge
 
 
-@userge.on_message(filters.command("tepo") & cus_filters.auth_chats)
+@userge.on_message(filters.command("tepo") & filters.me)
 async def _rules(_, message: Message):
     replied = message.reply_to_message
     if replied:
