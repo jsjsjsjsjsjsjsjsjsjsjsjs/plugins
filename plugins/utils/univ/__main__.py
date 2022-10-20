@@ -351,7 +351,7 @@ async def ub(message: Message):
 	raw = ses.post(url, headers=headers, data=dat, verify=False).text 
 	yan = bs(raw, 'html.parser').find("title")
 	if yan.text == "Mahasiswa - Universitas Airlangga":
-		await message.edit(f"UB\nNIM  : `{u}`\nPass : `{p}`\nBerhasil Login.")
+		await message.edit(f"UNAIR\nNIM  : `{u}`\nPass : `{p}`\nBerhasil Login.")
 	else:
-		await message.edit(f"UB\nNIM  : `{u}`\nPass : `{p}`\nGagal Login! Password salah.", del_in=5)
+		await message.edit(f"UNAIR\nNIM  : `{u}`\nPass : `{p}`\nGagal Login! Password salah.", del_in=5)
 
