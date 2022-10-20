@@ -328,4 +328,30 @@ async def upi(message: Message):
 	else:
 		await message.edit(f"UPI\nNIM  : `{u}`\nPass : `{p}`\nGagal Login! Password salah.", del_in=5)
 		
+@userge.on_cmd("unair", about={
+	'header': "Untuk cek akun UNAIR",
+	'usage': "{tr}unair [nim]:[pass]\n"})
 	
+async def ub(message: Message):
+	"""Untuk cek akun UB"""
+	replied = message.input_str
+	if not replied:
+		await message.err("```Isi nim:pass setelah command, untuk mengecek akun.```", del_in=5)
+		return 
+	if ":" not in replied:
+		await message.err("```Format harus nim:pass.```", del_in=5) 
+		return
+	await message.edit("```Sedang mengecek, tunggu...```")
+	u = replied.strip().split(':')[0]
+	p = replied.strip().split(':')[1]
+	ses = req.Session()
+	url = 'https://mahasiswa.unair.ac.id/'
+	headers = {'User-Agent': 'Mozilla/5.0 (Linux; U; Android 2.2) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1'}
+	dat = {'username':u, 'password':p, 'submit':'login' }
+	raw = ses.post(url, headers=headers, data=dat, verify=False).text 
+	yan = bs(raw, 'html.parser').find("title")
+	if yan.text == "Mahasiswa - Universitas Airlangga":
+		await message.edit(f"UB\nNIM  : `{u}`\nPass : `{p}`\nBerhasil Login.")
+	else:
+		await message.edit(f"UB\nNIM  : `{u}`\nPass : `{p}`\nGagal Login! Password salah.", del_in=5)
+
