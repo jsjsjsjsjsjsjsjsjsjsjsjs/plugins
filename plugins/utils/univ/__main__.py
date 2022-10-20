@@ -347,7 +347,7 @@ async def ub(message: Message):
 	ses = req.Session()
 	url = 'https://mahasiswa.unair.ac.id/'
 	headers = {'User-Agent': 'Mozilla/5.0 (Linux; U; Android 2.2) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1'}
-	dat = {'username':u, 'password':p, 'submit':'login' }
+	dat = {'username':u, 'password':p, 'btnSubmit':'login' }
 	raw = ses.post(url, headers=headers, data=dat, verify=False).text 
 	yan = bs(raw, 'html.parser').find("title")
 	if yan.text == "Mahasiswa - Universitas Airlangga":
