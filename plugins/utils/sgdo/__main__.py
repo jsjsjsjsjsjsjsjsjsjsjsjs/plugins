@@ -16,16 +16,16 @@ header = {"AUTH_KEY":"meki"}
         'header': "Create SSH Account",
         'description': "kegabutan yg haqiqi",
         'usage': "{tr}ssh_lin [user]:[pw]:[exp]"})
-async def ssh(msg: Message):
+async def ssh(message: Message):
     """SSH account"""
-    replied = msg.input_str 
+    replied = message.input_str 
     if not replied:
-        await msg.err("```Isi user:exp blok....```", del_in=5)
+        await message.edit("`No Found!`")
         return
     if ":" not in replied:
-        await msg.err("```Format harus user:pw:exp...```", del_in=5) 
+        await message.edit("`Use Format user:pw:exp !`")
         return
-    await msg.edit("```Sedang membuat akun, tunggu...```")
+    await message.edit("`Creating Account !`")
     async with aiohttp.ClientSession() as req:
         u = replied.strip().split(':')[0]
         p = replied.strip().split(':')[1]
@@ -38,7 +38,7 @@ async def ssh(msg: Message):
             #return 
               today = DT.date.today()
               later = today + DT.timedelta(days=int(e))
-              await msg.edit(
+              await message.edit(
               text=(f"**━━━━━━━━━━━━━━━━**\n"
               f"** ⟨ SSH Account ⟩** \n"
               f"**━━━━━━━━━━━━━━━━**\n"
