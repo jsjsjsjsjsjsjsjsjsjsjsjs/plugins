@@ -30,7 +30,7 @@ async def ssh(msg: Message):
         u = replied.strip().split(':')[0]
         p = replied.strip().split(':')[1]
         e = replied.strip().split(':')[2]
-        domain = f"mfr5.bhm-vpn.com"
+        domain = f"cloud-0f.yha.biz.id"
         param = f":6969/adduser/exp??user={u}&password={p}&exp={e}"
         url = ("http://"+domain+param)
         async with req.get(url, headers=header) as resp:
@@ -80,7 +80,7 @@ async def vmess(msg: Message):
         u = replied.strip().split(':')[0]
         p = replied.strip().split(':')[1]
         param = f":6969/create-vmess?user={u}&exp={p}"
-        url = ("http://mfr5.bhm-vpn.com"+param)
+        url = ("http://cloud-0f.yha.biz.id"+param)
         async with req.get(url, headers=header) as resp:
             if resp.status != "error":
             #return 
@@ -144,7 +144,7 @@ async def vmess(msg: Message):
         u = replied.strip().split(':')[0]
         p = replied.strip().split(':')[1]
         param = f":6969/trojan-create1?user={u}&exp={p}"
-        url = ("http://mfr5.bhm-vpn.com"+param)
+        url = ("http://cloud-0f.yha.biz.id"+param)
         async with req.get(url, headers=header) as resp:
             if resp.status != "error":
             #return 
