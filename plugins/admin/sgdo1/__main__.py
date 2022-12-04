@@ -16,16 +16,16 @@ header = {"AUTH_KEY":"meki"}
         'header': "Create VMESS Account",
         'description': "kegabutan yg haqiqi",
         'usage': "{tr}vmess_do [user]:[exp]"})
-async def vmess(msg: Message):
+async def vmess(message: Message):
     """vmess account"""
-    replied = msg.input_str 
+    replied = message.input_str 
     if not replied:
-        await msg.err("```Isi user:exp blok....```", del_in=5)
+        await message.edit("`JGN KOSONG BLOK!`")
         return
     if ":" not in replied:
-        await msg.err("```Format harus user:exp...```", del_in=5) 
+        await message.edit("`USER:EXP !`")
         return
-    await msg.edit("```Sedang membuat akun, tunggu...```")
+    await message.edit("`Tunggu Blog !`")
     async with aiohttp.ClientSession() as req:
         u = replied.strip().split(':')[0]
         p = replied.strip().split(':')[1]
@@ -49,7 +49,7 @@ async def vmess(msg: Message):
               path = z['path']
               today = DT.date.today()
               later = today + DT.timedelta(days=int(p))
-              await msg.edit(
+              await message.edit(
         text=(f"**━━━━━━━━━━━━━━━━**\n"
                   f" **⟨ VMESS ⟩**\n"
                   f"**━━━━━━━━━━━━━━━━**\n"
@@ -58,13 +58,16 @@ async def vmess(msg: Message):
                   f"**» UUID :** `{uuid}`\n"
                   f"**» Port TLS :** `{porttls}`\n"
                   f"**» Port HTTP :** `{porthttp}`\n"
-                  f"**» Path :** `{path}`\n"
+                  f"**» Path :** `isi apa aja bebas`\n"
                   f"**━━━━━━━━━━━━━━━━**\n"
                   f" **Vmess TLS link :**\n"
                   f"**» `{x[0]}`\n"
                   f"**━━━━━━━━━━━━━━━━**\n"
                   f" **Vmess HTTP link :**\n"
                   f"**» `{x[1].strip()}`\n"
+                  f"**━━━━━━━━━━━━━━━━**\n"
+                  f" **Vmess GRPC link :**\n"
+                  f"**» `{x[2].strip()}`\n"
                   f"**━━━━━━━━━━━━━━━━**\n"
                   f"** Expired :** `{later}`\n"
                   f"**━━━━━━━━━━━━━━━━**"),
