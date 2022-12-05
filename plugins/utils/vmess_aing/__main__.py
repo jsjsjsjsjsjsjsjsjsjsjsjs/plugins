@@ -12,10 +12,10 @@ header = {"AUTH_KEY":"meki"}
 
 
 @userge.on_cmd(
-    "vmess_do1", about={
+    "vmess_iang", about={
         'header': "Create VMESS Account",
         'description': "kegabutan yg haqiqi",
-        'usage': "{tr}vmess_do1 [user]:[exp]"})
+        'usage': "{tr}vmess_aing [user]:[exp]"})
 async def vmess(message: Message):
     """vmess account"""
     replied = message.input_str 
@@ -30,7 +30,7 @@ async def vmess(message: Message):
         u = replied.strip().split(':')[0]
         p = replied.strip().split(':')[1]
         param = f":6969/create-vmess?user={u}&exp={p}"
-        url = ("http://do1.denkaara.me"+param)
+        url = ("http://cloud-0f.yha.biz.id"+param)
         async with req.get(url, headers=header) as resp:
             if resp.status != "error":
             #return 
@@ -78,10 +78,10 @@ async def vmess(message: Message):
         )
         
 @userge.on_cmd(
-    "trojan_do1", about={
+    "trojan_aing", about={
         'header': "Create TROJAN Account",
         'description': "kegabutan yg haqiqi",
-        'usage': "{tr}trojan_do1 [user]:[exp]"})
+        'usage': "{tr}trojan_aing [user]:[exp]"})
 async def trojan(message: Message):
     """TROJAN account"""
     replied = message.input_str 
@@ -96,7 +96,7 @@ async def trojan(message: Message):
         u = replied.strip().split(':')[0]
         p = replied.strip().split(':')[1]
         param = f":6969/trojan-create?user={u}&exp={p}"
-        url = ("http://do1.denkaara.me"+param)
+        url = ("http://cloud-0f.yha.biz.id"+param)
         async with req.get(url, headers=header) as resp:
             if resp.status != "error":
             #return 
