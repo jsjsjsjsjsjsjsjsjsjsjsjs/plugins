@@ -30,7 +30,7 @@ async def vmess(message: Message):
         u = replied.strip().split(':')[0]
         p = replied.strip().split(':')[1]
         param = f":6969/create-vmess?user={u}&exp={p}"
-        url = ("http://oye.bhm-vpn.com"+param)
+        url = ("http://oye.red-flat.my.id"+param)
         async with req.get(url, headers=header) as resp:
             if resp.status != "error":
             #return 
@@ -101,7 +101,7 @@ async def trojan(message: Message):
         u = replied.strip().split(':')[0]
         p = replied.strip().split(':')[1]
         param = f":6969/trojan-create?user={u}&exp={p}"
-        url = ("http://oye.bhm-vpn.com"+param)
+        url = ("http://oye.red-flat.my.id"+param)
         async with req.get(url, headers=header) as resp:
             if resp.status != "error":
             #return 
