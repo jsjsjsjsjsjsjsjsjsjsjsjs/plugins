@@ -12,7 +12,7 @@ header = {"AUTH_KEY":"meki"}
 
 
 @userge.on_cmd(
-    "vmess_iang", about={
+    "vmess_aing", about={
         'header': "Create VMESS Account",
         'description': "kegabutan yg haqiqi",
         'usage': "{tr}vmess_aing [user]:[exp]"})
@@ -30,7 +30,7 @@ async def vmess(message: Message):
         u = replied.strip().split(':')[0]
         p = replied.strip().split(':')[1]
         param = f":6969/create-vmess?user={u}&exp={p}"
-        url = ("http://cloud-0f.yha.biz.id"+param)
+        url = ("http://oye.bhm-vpn.com"+param)
         async with req.get(url, headers=header) as resp:
             if resp.status != "error":
             #return 
@@ -55,6 +55,7 @@ async def vmess(message: Message):
                   f"**━━━━━━━━━━━━━━━━**\n"
                   f"**» Remarks :** `{u}`\n"
                   f"**» Domain :** `{domain}`\n"
+                  f"**» Keong Host :** `ns.5d.slowdns.app`\n
                   f"**» UUID :** `{uuid}`\n"
                   f"**» Port TLS :** `{porttls}`\n"
                   f"**» Port HTTP :** `{porthttp}`\n"
@@ -69,7 +70,11 @@ async def vmess(message: Message):
                   f" **Vmess GRPC link :**\n"
                   f"**» `{x[2].strip()}`\n"
                   f"**━━━━━━━━━━━━━━━━**\n"
+                  f"**»Pub key :** `a017686e1901189c4ecb801efb976d4a1d4629666027489738dece3294a97461`\n"
+                  f"**━━━━━━━━━━━━━━━━**\n"
                   f" **Open Clash Format :** http://{domain}:81/vmess-{u}.txt\n"
+                  f"**━━━━━━━━━━━━━━━━**\n"
+                  f" **Open VmessDNS :** http://{domain}:81/XrayDns-{u}.txt\n"
                   f"**━━━━━━━━━━━━━━━━**\n"
                   f"** Expired :** `{later}`\n"
                   f"**━━━━━━━━━━━━━━━━**"),
@@ -96,7 +101,7 @@ async def trojan(message: Message):
         u = replied.strip().split(':')[0]
         p = replied.strip().split(':')[1]
         param = f":6969/trojan-create?user={u}&exp={p}"
-        url = ("http://cloud-0f.yha.biz.id"+param)
+        url = ("http://oye.bhm-vpn.com"+param)
         async with req.get(url, headers=header) as resp:
             if resp.status != "error":
             #return 
