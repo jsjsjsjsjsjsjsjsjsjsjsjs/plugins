@@ -55,7 +55,7 @@ async def vmess(message: Message):
                   f"**━━━━━━━━━━━━━━━━**\n"
                   f"**» Remarks :** `{u}`\n"
                   f"**» Domain :** `{domain}`\n"
-                  f"**» Keong Host :** `ns.5d.slowdns.app`\n
+                  f"**» Keong Host :** `ns.5d.slowdns.app`\n"
                   f"**» UUID :** `{uuid}`\n"
                   f"**» Port TLS :** `{porttls}`\n"
                   f"**» Port HTTP :** `{porthttp}`\n"
