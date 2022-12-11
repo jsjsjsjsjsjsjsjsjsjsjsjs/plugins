@@ -28,8 +28,9 @@ async def vmess(message: Message):
     await message.edit("`Tunggu Blog !`")
     async with aiohttp.ClientSession() as req:
         u = replied.strip().split(':')[0]
-        p = replied.strip().split(':')[1]
-        param = f":6969/create-vmess?user={u}&exp={p}"
+        q = replied.strip().split(':')[1]
+        p = replied.strip().split(':')[2]
+        param = f":6969/create-vmess?user={u}&quota={q}&exp={p}"
         url = ("http://oye.red-flat.my.id"+param)
         async with req.get(url, headers=header) as resp:
             if resp.status != "error":
@@ -54,8 +55,8 @@ async def vmess(message: Message):
                   f" **⟨ VMESS ⟩**\n"
                   f"**━━━━━━━━━━━━━━━━**\n"
                   f"**» Remarks :** `{u}`\n"
+                  f"**» Quota : {q}GB**\n"
                   f"**» Domain :** `{domain}`\n"
-                  f"**» Keong Host :** `ns.5d.slowdns.app`\n"
                   f"**» UUID :** `{uuid}`\n"
                   f"**» Port TLS :** `{porttls}`\n"
                   f"**» Port HTTP :** `{porthttp}`\n"
@@ -69,12 +70,6 @@ async def vmess(message: Message):
                   f"**━━━━━━━━━━━━━━━━**\n"
                   f" **Vmess GRPC link :**\n"
                   f"**» `{x[2].strip()}`\n"
-                  f"**━━━━━━━━━━━━━━━━**\n"
-                  f"**»Pub key :** `a017686e1901189c4ecb801efb976d4a1d4629666027489738dece3294a97461`\n"
-                  f"**━━━━━━━━━━━━━━━━**\n"
-                  f" **Open Clash Format :** http://{domain}:81/vmess-{u}.txt\n"
-                  f"**━━━━━━━━━━━━━━━━**\n"
-                  f" **Open VmessDNS :** http://{domain}:81/XrayDns-{u}.txt\n"
                   f"**━━━━━━━━━━━━━━━━**\n"
                   f"** Expired :** `{later}`\n"
                   f"**━━━━━━━━━━━━━━━━**"),
