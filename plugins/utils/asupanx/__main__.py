@@ -13,7 +13,7 @@ from userge import ReplyCheck
         'description': "Kegoblokan yg haqiqi",
         'usage': "{tr}asupanx"})
 async def asupanx(client: Client, message: Message):
-	Asu = await edit_or_reply(message, "`Tunggu Sebentar...`")
+    Asu = await edit_or_reply(message, "`Tunggu Sebentar...`")
     await gather(
         Asu.delete(),
         client.send_video(
