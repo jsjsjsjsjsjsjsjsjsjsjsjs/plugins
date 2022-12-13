@@ -2,9 +2,9 @@ import random
 
 
 from userge import userge, Message
-from pyrogram import InputMessagesFilterVideo
-from pyrogram import InputMessagesFilterVoice
-from pyrogram import InputMessagesFilterPhotos
+from userge import InputMessagesFilterVideo
+from userge import InputMessagesFilterVoice
+from userge import InputMessagesFilterPhotos
 
 
 @userge.on_cmd(
