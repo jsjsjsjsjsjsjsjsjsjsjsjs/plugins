@@ -4,8 +4,6 @@ from random import choice
 from pyrogram import Client, enums, filters
 from pyrogram.types import Message
 from userge import userge
-from userge import edit_or_reply
-from userge import ReplyCheck
 
 @userge.on_cmd(
     "asupanx", about={
