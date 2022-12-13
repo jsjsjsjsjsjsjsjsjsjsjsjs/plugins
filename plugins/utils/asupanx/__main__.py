@@ -1,29 +1,32 @@
-from asyncio import gather
-from random import choice
+import random
 
-from pyrogram import Client, enums, filters
-from pyrogram.types import Message
-from userge import userge
+
+from userge import userge, Message
+from pyrogram.tl.types import InputMessagesFilterVideo
+from pyrogram.tl.types import InputMessagesFilterVoice
+from pyrogram.tl.types import InputMessagesFilterPhotos
+
 
 @userge.on_cmd(
-    "asupanx", about={
+    "asupan", about={
         'header': "Kegoblokan yang haqiqi",
         'description': "Kegoblokan yg haqiqi",
-        'usage': "{tr}asupanx"})
-async def asupanx(client: Client, message: Message):
-    Asu = await edit_or_reply(message, "`Tunggu Sebentar...`")
-    await gather(
-        Asu.delete(),
-        client.send_video(
-            message.chat.id,
-            choice(
-                [
-                    asupanx.video.file_id
-                    async for asupanx in client.search_messages(
-                        "tedeasupancache", filter=enums.MessagesFilter.VIDEO
-                    )
-                ]
-            ),
-            reply_to_message_id=ReplyCheck(message),
-        ),
-    )
+        'usage': "{tr}asupan"})
+async def _(event):
+    try:
+        asupannya = [
+            asupan
+            async for asupan in event.client.iter_messages(
+                "@balabalabotbokep", filter=InputMessagesFilterVideo
+            )
+        ]
+        aing = await event.client.get_me()
+        await event.client.send_file(
+            event.chat_id,
+            file=random.choice(asupannya),
+            caption=f"Ini Asupannya Buat Kau [{DEFAULTUSER}](tg://user?id={aing.id})",
+        )
+        await event.delete()
+    except Exception:
+        await event.edit("Tidak bisa menemukan video orang colmek.")
+
