@@ -12,75 +12,25 @@ header = {"AUTH_KEY":"meki"}
 
 
 @userge.on_cmd(
-    "ssh_yha", about={
-        'header': "Create SSH Account",
-        'description': "kegabutan yg haqiqi",
-        'usage': "{tr}ssh_yha [user]:[pw]:[exp]"})
-async def ssh(message: Message):
-    """SSH account"""
-    replied = message.input_str 
-    if not replied:
-        await message.edit("`JGN KOSONG BLOK!`")
-        return
-    if ":" not in replied:
-        await message.edit("`USER:PW:EXP !`")
-        return
-    await message.edit("`Tunggu Blog !`")
-    async with aiohttp.ClientSession() as req:
-        u = replied.strip().split(':')[0]
-        p = replied.strip().split(':')[1]
-        e = replied.strip().split(':')[2]
-        domain = f"m.ftvpn.net"
-        param = f":6969/adduser/exp??user={u}&password={p}&exp={e}"
-        url = ("http://"+domain+param)
-        async with req.get(url, headers=header) as resp:
-            if resp.status != "success":
-            #return 
-              today = DT.date.today()
-              later = today + DT.timedelta(days=int(e))
-              await message.edit(
-              text=(f"**━━━━━━━━━━━━━━━━**\n"
-              f"** ⟨ SSH Account ⟩** \n"
-              f"**━━━━━━━━━━━━━━━━**\n"
-              f"**Username:** `{u}`\n"
-              f"**Password:** `{p}`\n"
-              f"**Domain:** `{domain}`\n"
-              f"**Port SSL :** `222, 447`\n"
-              f"**Port WS :** `80`\n"
-              f"**Port WS SSL :** `443`\n"
-              f"**━━━━━━━━━━━━━━━━**\n"
-              f"**PayLoad WS:**\n"
-              f"**`GET / HTTP/1.1[crlf]Host: {domain}[crlf]Connection: Keep-Alive[crlf]User-Agent: [ua][crlf]Upgrade: websocket[crlf][crlf]`\n"
-              f"**━━━━━━━━━━━━━━━━**\n"
-              f"**Exp Until:** `{later}`\n"
-              f"**━━━━━━━━━━━━━━━━**\n"),
-         
-             disable_web_page_preview=True,
-             parse_mode=enums.ParseMode.MARKDOWN
-     
-    
-        )
-        
-@userge.on_cmd(
-    "vmess_yha", about={
+    "vmess_do", about={
         'header': "Create VMESS Account",
         'description': "kegabutan yg haqiqi",
-        'usage': "{tr}vmess_yha [user]:[exp]"})
-async def vmess(message: Message):
+        'usage': "{tr}vmess_do [user]:[exp]"})
+async def vmess(msg: Message):
     """vmess account"""
-    replied = message.input_str 
+    replied = msg.input_str 
     if not replied:
-        await message.edit("`JGN KOSONG BLOK!`")
+        await msg.err("```Isi user:exp blok....```", del_in=5)
         return
     if ":" not in replied:
-        await message.edit("`USER:EXP !`")
+        await msg.err("```Format harus user:exp...```", del_in=5) 
         return
-    await message.edit("`Tunggu Blog !`")
+    await msg.edit("```Sedang membuat akun, tunggu...```")
     async with aiohttp.ClientSession() as req:
         u = replied.strip().split(':')[0]
         p = replied.strip().split(':')[1]
         param = f":6969/create-vmess?user={u}&exp={p}"
-        url = ("http://m.ftvpn.net"+param)
+        url = ("http://lisens.red-flat.my.id"+param)
         async with req.get(url, headers=header) as resp:
             if resp.status != "error":
             #return 
@@ -99,7 +49,7 @@ async def vmess(message: Message):
               path = z['path']
               today = DT.date.today()
               later = today + DT.timedelta(days=int(p))
-              await message.edit(
+              await msg.edit(
         text=(f"**━━━━━━━━━━━━━━━━**\n"
                   f" **⟨ VMESS ⟩**\n"
                   f"**━━━━━━━━━━━━━━━━**\n"
@@ -115,123 +65,6 @@ async def vmess(message: Message):
                   f"**━━━━━━━━━━━━━━━━**\n"
                   f" **Vmess HTTP link :**\n"
                   f"**» `{x[1].strip()}`\n"
-                  f"**━━━━━━━━━━━━━━━━**\n"
-                  f" **Vmess GRPC link :**\n"
-                  f"**» `{x[2].strip()}`\n"
-                  f"**━━━━━━━━━━━━━━━━**\n"
-                  f"** Expired :** `{later}`\n"
-                  f"**━━━━━━━━━━━━━━━━**"),
-        disable_web_page_preview=True,
-        parse_mode=enums.ParseMode.MARKDOWN
-        )
-        
-@userge.on_cmd(
-    "ssh_til", about={
-        'header': "Create SSH Account",
-        'description': "kegabutan yg haqiqi",
-        'usage': "{tr}ssh_til [user]:[pw]:[exp]"})
-async def ssh(message: Message):
-    """SSH account"""
-    replied = message.input_str 
-    if not replied:
-        await message.edit("`JGN KOSONG BLOK!`")
-        return
-    if ":" not in replied:
-        await message.edit("`USER:PW:EXP !`")
-        return
-    await message.edit("`Tunggu Blog !`")
-    async with aiohttp.ClientSession() as req:
-        u = replied.strip().split(':')[0]
-        p = replied.strip().split(':')[1]
-        e = replied.strip().split(':')[2]
-        domain = f"dvoi3.ftvpn.xyz"
-        param = f":6969/adduser/exp??user={u}&password={p}&exp={e}"
-        url = ("http://"+domain+param)
-        async with req.get(url, headers=header) as resp:
-            if resp.status != "success":
-            #return 
-              today = DT.date.today()
-              later = today + DT.timedelta(days=int(e))
-              await message.edit(
-              text=(f"**━━━━━━━━━━━━━━━━**\n"
-              f"** ⟨ SSH Account ⟩** \n"
-              f"**━━━━━━━━━━━━━━━━**\n"
-              f"**Username:** `{u}`\n"
-              f"**Password:** `{p}`\n"
-              f"**Domain:** `{domain}`\n"
-              f"**Port SSL :** `222, 447`\n"
-              f"**Port WS :** `80`\n"
-              f"**Port WS SSL :** `443`\n"
-              f"**━━━━━━━━━━━━━━━━**\n"
-              f"**PayLoad WS:**\n"
-              f"**`GET / HTTP/1.1[crlf]Host: {domain}[crlf]Connection: Keep-Alive[crlf]User-Agent: [ua][crlf]Upgrade: websocket[crlf][crlf]`\n"
-              f"**━━━━━━━━━━━━━━━━**\n"
-              f"**Exp Until:** `{later}`\n"
-              f"**━━━━━━━━━━━━━━━━**\n"),
-         
-             disable_web_page_preview=True,
-             parse_mode=enums.ParseMode.MARKDOWN
-     
-    
-        )
-        
-@userge.on_cmd(
-    "vmess_mek", about={
-        'header': "Create VMESS Account",
-        'description': "kegabutan yg haqiqi",
-        'usage': "{tr}vmess_mek [user]:[exp]"})
-async def vmess(message: Message):
-    """vmess account"""
-    replied = message.input_str 
-    if not replied:
-        await message.edit("`JGN KOSONG BLOK!`")
-        return
-    if ":" not in replied:
-        await message.edit("`USER:EXP !`")
-        return
-    await message.edit("`Tunggu Blog !`")
-    async with aiohttp.ClientSession() as req:
-        u = replied.strip().split(':')[0]
-        p = replied.strip().split(':')[1]
-        param = f":6969/create-vmess?user={u}&exp={p}"
-        url = ("http://dvoi3.ftvpn.xyz"+param)
-        async with req.get(url, headers=header) as resp:
-            if resp.status != "error":
-            #return 
-              xx = await resp.text()
-       # if xx['status_code'] == 0:
-              x = xx.replace("[","").replace("]","").replace("'",
-"").split(",")
-              z = base64.b64decode(x[0].replace("vmess://","")).decode("ascii")
-              z = json.loads(z)
-              z1 = base64.b64decode(x[1].replace("vmess://","")).decode("ascii")
-              z1 = json.loads(z1)
-              porttls = z['port']
-              porthttp = z1['port']
-              domain = z['add']
-              uuid = z['id']
-              path = z['path']
-              today = DT.date.today()
-              later = today + DT.timedelta(days=int(p))
-              await message.edit(
-        text=(f"**━━━━━━━━━━━━━━━━**\n"
-                  f" **⟨ VMESS ⟩**\n"
-                  f"**━━━━━━━━━━━━━━━━**\n"
-                  f"**» Remarks :** `{u}`\n"
-                  f"**» Domain :** `{domain}`\n"
-                  f"**» UUID :** `{uuid}`\n"
-                  f"**» Port TLS :** `{porttls}`\n"
-                  f"**» Port HTTP :** `{porthttp}`\n"
-                  f"**» Path :** `{path}`\n"
-                  f"**━━━━━━━━━━━━━━━━**\n"
-                  f" **Vmess TLS link :**\n"
-                  f"**» `{x[0]}`\n"
-                  f"**━━━━━━━━━━━━━━━━**\n"
-                  f" **Vmess HTTP link :**\n"
-                  f"**» `{x[1].strip()}`\n"
-                  f"**━━━━━━━━━━━━━━━━**\n"
-                  f" **Vmess GRPC link :**\n"
-                  f"**» `{x[2].strip()}`\n"
                   f"**━━━━━━━━━━━━━━━━**\n"
                   f"** Expired :** `{later}`\n"
                   f"**━━━━━━━━━━━━━━━━**"),
