@@ -125,7 +125,7 @@ async def vmess(message: Message):
               uuid = z['id']
               path = z['path']
               today = DT.date.today()
-              later = today + DT.timedelta(days=int(p))
+              later = today + DT.timedelta(days=int(1))
               await message.edit(
         text=(f"**━━━━━━━━━━━━━━━━**\n"
                   f" ** ⚡️ TRIAL VMESS  ⚡️️ **\n"
