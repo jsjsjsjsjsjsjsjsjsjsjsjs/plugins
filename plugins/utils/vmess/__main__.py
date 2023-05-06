@@ -100,9 +100,9 @@ async def vmess(message: Message):
     if not replied:
         await message.edit("`JGN KOSONG BLOK!`")
         return
-    elif ":" not in replied:
-        await message.edit("`USER:EXP !`")
-        return
+    #elif ":" not in replied:
+        #await message.edit("`USER:EXP !`")
+        #return
     await message.edit("`Tunggu Blog !`")
     async with aiohttp.ClientSession() as req:
         s = replied.strip().split(':')[0]
