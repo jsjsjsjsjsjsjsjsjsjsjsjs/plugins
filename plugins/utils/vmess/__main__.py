@@ -27,7 +27,7 @@ async def vmess(message: Message):
         return
     await message.edit("`Tunggu Blog !`")
     async with aiohttp.ClientSession() as req:
-    	s = replied.strip().split(':')[0]
+        s = replied.strip().split(':')[0]
         u = replied.strip().split(':')[0]
         p = replied.strip().split(':')[1]
         param = f":6969/create-vmess?user={u}&exp={p}"
