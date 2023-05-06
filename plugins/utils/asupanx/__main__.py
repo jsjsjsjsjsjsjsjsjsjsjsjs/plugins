@@ -1,32 +1,33 @@
-import random
-
-
+import aiohttp
+import base64
+from pyrogram import enums
 from userge import userge, Message
-from userge import InputMessagesFilterVideo
-from userge import InputMessagesFilterVoice
-from userge import InputMessagesFilterPhotos
+import time, os, math, requests, re, json
+import datetime as DT
+import requests as req
+from pyrogram import Client, filters
 
+
+header = {"AUTH_KEY":"meki"}
 
 @userge.on_cmd(
     "asupan", about={
-        'header': "Kegoblokan yang haqiqi",
-        'description': "Kegoblokan yg haqiqi",
+        'header': "Sangat GABUT",
+        'description': "kegabutan yg haqiqi",
         'usage': "{tr}asupan"})
-async def _(event):
-    try:
-        asupannya = [
-            asupan
-            async for asupan in event.client.iter_messages(
-                "@balabalabotbokep", filter=InputMessagesFilterVideo
-            )
-        ]
-        aing = await event.client.get_me()
-        await event.client.send_file(
-            event.chat_id,
-            file=random.choice(asupannya),
-            caption=f"Ini Asupannya Buat Kau [{DEFAULTUSER}](tg://user?id={aing.id})",
-        )
-        await event.delete()
-    except Exception:
-        await event.edit("Tidak bisa menemukan video orang colmek.")
-
+async def asupan_cmd(client: Client, message: Message):
+    m = await edit_or_reply(message, "`Tunggu Sebentar...`")
+    await gather(
+        client.send_video(
+            message.chat.id,
+            choice(
+                [
+                    asupan.video.file_id
+                    async for asupan in client.search_messages(
+                        "tedeasupancache", filter="video"
+                    )
+                ]
+            ),
+        ),
+        m.delete(),
+    )
