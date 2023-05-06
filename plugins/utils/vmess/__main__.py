@@ -119,6 +119,7 @@ async def vmess(message: Message):
               z = json.loads(z)
               z1 = base64.b64decode(x[1].replace("vmess://","")).decode("ascii")
               z1 = json.loads(z1)
+              remarks = z['ps']
               porttls = z['port']
               porthttp = z1['port']
               domain = z['add']
@@ -130,7 +131,7 @@ async def vmess(message: Message):
         text=(f"**━━━━━━━━━━━━━━━━**\n"
                   f" ** ⚡️ TRIAL VMESS  ⚡️️ **\n"
                   f"**━━━━━━━━━━━━━━━━**\n"
-                  f"**🔰 Remarks :** `{u}`\n"
+                  f"**🔰 Remarks :** `{remarks}`\n"
                   f"**🔰 Domain :** `{domain}`\n"
                   f"**🔰 UUID :** `{uuid}`\n"
                   f"**🔰 Port TLS :** `{porttls}`\n"
