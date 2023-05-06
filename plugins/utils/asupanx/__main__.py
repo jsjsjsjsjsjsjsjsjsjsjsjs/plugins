@@ -10,24 +10,12 @@ from pyrogram import Client, filters
 from userge import userge, Message, filters
 
 
-# add filters handler
-@userge.on_filters(("asupan", [".", "-", "^", "!", "?"]) & filters.me)  # filter my private messages
-async def asupan(client: Client, message: Message):
-    if message.chat.id == -1001554560763:
-        return await edit_or_reply(message, "**This command is prohibited from being used in this group**")
-    ram = await edit_or_reply(message, "`Wait a moment...`")
-    await gather(
-        ram.delete(),
-        client.send_video(
-            message.chat.id,
-            choice(
-                [
-                    asupan.video.file_id
-                    async for asupan in client.search_messages(
-                        "punyakenkan", filter=enums.MessagesFilter.VIDEO
-                    )
-                ]
-            ),
-            reply_to_message_id=ReplyCheck(message),
-        ),
-    )
+@userge.on_cmd("asupan", about="asupan")
+async def asupan(client, message):
+    try:
+        resp = requests.get("https://api-tede.herokuapp.com/api/asupan/ptl").json()
+        results = f"{resp['url']}"
+        return await client.send_video(message.chat.id, video=results)
+    except Exception:
+        await message.reply_text("`404 asupan videos not found:v`")
+
