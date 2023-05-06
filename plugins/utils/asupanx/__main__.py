@@ -15,7 +15,7 @@ header = {"AUTH_KEY":"meki"}
         'header': "Sangat GABUT",
         'description': "kegabutan yg haqiqi",
         'usage': "{tr}asupan"})
-async def asupan_cmd(message: Message):
+async def asupan_cmd(client: Client message: Message):
     m = await message.edit("`Tunggu Sebentar...`")
     await message.edit(
         client.send_video(
