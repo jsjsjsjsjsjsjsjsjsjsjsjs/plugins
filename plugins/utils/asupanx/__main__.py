@@ -13,7 +13,7 @@ from pyrogram import Client, filters
         'header': "Sangat GABUT",
         'description': "kegabutan yg haqiqi",
         'usage': "{tr}asupan"})
-async def asupan(client, Message: message):
+async def asupan(client, message: Message):
     nyet = await message.reply("🔎 `Search asupan...`")
     pop = message.from_user.first_name
     ah = message.from_user.id
