@@ -7,25 +7,25 @@ import datetime as DT
 import requests as req
 from pyrogram import Client, filters
 
+from userge import userge, Message, filters
 
-@userge.on_cmd(
-    "asupan", about={
-        'header': "Sangat GABUT",
-        'description': "kegabutan yg haqiqi",
-        'usage': "{tr}asupan"})
-async def asupan(client, message):
-    yanto = await message.reply("🔎 `Mencari Asupan..`")
-    pop = message.from_user.first_name
-    ah = message.from_user.id
-    await message.reply_video(
-        choice(
-            [
-                lol.video.file_id
-                async for lol in client.search_messages("asupancilikbot", filter="video")
-            ]
-        ),
-        False,
-        caption=f"Nih Kak [{pop}](tg://user?id={ah}) Asupannya 🥵"
-    )
+LOG = userge.getLogger(__name__)  # logger object
+CHANNEL = userge.getCLogger(__name__)  # channel logger object
 
-    await yanto.delete()
+# add command handler
+@userge.on_cmd("test", about="help text to this command")
+async def test_cmd(message: Message):
+   LOG.info("starting test command...")  # log to console
+   ...
+   await message.edit("testing...", del_in=5)  # this will be automatically deleted after 5 sec
+   ...
+   await CHANNEL.log("testing completed!")  # log to channel
+
+# add filters handler
+@userge.on_filters(filters.me & filters.private)  # filter my private messages
+async def test_filter(message: Message):
+   LOG.info("starting filter command...")
+   ...
+   await message.reply(f"you typed - {message.text}", del_in=5)
+   ...
+   await CHANNEL.log("filter executed!")
