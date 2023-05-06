@@ -16,7 +16,7 @@ header = {"AUTH_KEY":"meki"}
         'description': "kegabutan yg haqiqi",
         'usage': "{tr}asupan"})
 async def asupan_cmd(message: Message):
-    m = await edit_or_reply(message, "`Tunggu Sebentar...`")
+    m = await message.edit("`Tunggu Sebentar...`")
     await gather(
         client.send_video(
             message.chat.id,
