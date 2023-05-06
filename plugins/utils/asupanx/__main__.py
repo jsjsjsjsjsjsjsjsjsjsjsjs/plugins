@@ -13,21 +13,22 @@ from pyrogram import Client, filters
         'header': "Sangat GABUT",
         'description': "kegabutan yg haqiqi",
         'usage': "{tr}asupan"})
-async def asupan(client, message: Message):
-    nyet = await message.reply("🔎 `Search asupan...`")
-    pop = message.from_user.first_name
-    ah = message.from_user.id
-    await message.reply_video(
-        choice(
-            [
-                lol.video.file_id
-                async for lol in client.search_messages(
-                    "asupancilikbot", filter=enums.MessagesFilter.VIDEO
-                )
-            ]
+async def asupan(client: Client, message: Message):
+    if message.chat.id == -1001554560763:
+        return await edit_or_reply(message, "**This command is prohibited from being used in this group**")
+    ram = await edit_or_reply(message, "`Wait a moment...`")
+    await gather(
+        ram.delete(),
+        client.send_video(
+            message.chat.id,
+            choice(
+                [
+                    asupan.video.file_id
+                    async for asupan in client.search_messages(
+                        "punyakenkan", filter=enums.MessagesFilter.VIDEO
+                    )
+                ]
+            ),
+            reply_to_message_id=ReplyCheck(message),
         ),
-        False,
-        caption=f"Nih Kak [{pop}](tg://user?id={ah}) Asupannya 🥵"
     )
-
-    await nyet.delete()
