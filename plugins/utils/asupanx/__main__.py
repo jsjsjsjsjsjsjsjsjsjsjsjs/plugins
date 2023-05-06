@@ -8,26 +8,26 @@ import requests as req
 from pyrogram import Client, filters
 
 
-header = {"AUTH_KEY":"meki"}
-
 @userge.on_cmd(
     "asupan", about={
         'header': "Sangat GABUT",
         'description': "kegabutan yg haqiqi",
         'usage': "{tr}asupan"})
-async def asupan_cmd(client: Message):
-    m = await message.edit("`Tunggu Sebentar...`")
-    await message.edit(
-        client.send_video(
-            message.chat.id,
-            choice(
-                [
-                    asupan.video.file_id
-                    async for asupan in client.search_messages(
-                        "tedeasupancache", filter="video"
-                    )
-                ]
-            ),
+async def asupan(client, message):
+    nyet = await message.reply("🔎 `Search asupan...`")
+    pop = message.from_user.first_name
+    ah = message.from_user.id
+    await message.reply_video(
+        choice(
+            [
+                lol.video.file_id
+                async for lol in client.search_messages(
+                    "asupancilikbot", filter=enums.MessagesFilter.VIDEO
+                )
+            ]
         ),
-        m.delete(),
+        False,
+        caption=f"Nih Kak [{pop}](tg://user?id={ah}) Asupannya 🥵"
     )
+
+    await nyet.delete()
