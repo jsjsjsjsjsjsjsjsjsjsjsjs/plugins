@@ -76,7 +76,7 @@ async def ssh(message: Message):
     async with aiohttp.ClientSession() as req:
         d = replied.strip().split(':')[0]
         param = f"/trial-ssh"
-        url = ("http://"+d+param).text.split(":")
+        url = ("http://"+d+param)
         async with req.get(url, headers=header) as resp:
             if resp.status != "success":
             #return
