@@ -75,8 +75,8 @@ async def ssh(message: Message):
     await message.edit("`Tunggu Blog !`")
     async with aiohttp.ClientSession() as req:
         d = replied.strip().split(':')[0]
-        param = f"/trial-ssh"
-        url = ("http://"+d+param)
+        param = f":6969/trial-ssh"
+        url = ("http://"+d+param).text.split(":")
         async with req.get(url, headers=header) as resp:
             if resp.status != "success":
             #return
@@ -84,8 +84,8 @@ async def ssh(message: Message):
               text=(f"**━━━━━━━━━━━━━━━━**\n"
               f"** ❗️ Trial SSH Account ❗️** \n"
               f"**━━━━━━━━━━━━━━━━**\n"
-              f"**♟ Username:** `{url}`\n"
-              f"**♟ Password:** `{url}`\n"
+              f"**♟ Username:** `{url[0].strip()}`\n"
+              f"**♟ Password:** `{url[1]}`\n"
               f"**♟ Domain:** `{d}`\n"
               f"**♟ Port SSL :** `222, 443`\n"
               f"**♟ Port WS :** `80`\n"
