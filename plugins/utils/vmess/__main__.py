@@ -30,7 +30,7 @@ async def vmess(message: Message):
         s = replied.strip().split(':')[0]
         u = replied.strip().split(':')[1]
         p = replied.strip().split(':')[2]
-        param = f":6969/create-vmess?user={u}&exp={p}"
+        param = f":6969/create-vmess?user={u}&quota=300&limitip=2&exp={p}"
         url = ("http://"+s+param)
         async with req.get(url, headers=header) as resp:
             if resp.status != "error":
