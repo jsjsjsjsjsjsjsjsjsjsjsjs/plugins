@@ -74,54 +74,5 @@ async def trojan(message: Message):
 
                   
         
-@userge.on_cmd(
-    "trialtr", about={
-        'header': "Create TROJAN Account",
-        'description': "kegabutan yg haqiqi",
-        'usage': "{tr}trialtr [domain][user]:[exp]"})
-async def trojan(message: Message):
-    """TROJAN account"""
-    replied = message.input_str 
-    if not replied:
-        await message.edit("`JGN KOSONG BLOK!`")
-        return
-    await message.edit("`Tunggu Blog !`")
-    async with aiohttp.ClientSession() as req:
-        u = replied.strip().split(':')[0]
-        param = f":6969/trial-trojan"
-        url = ("http://"+u+param)
-        async with req.get(url, headers=header) as resp:
-            if resp.status != "error":
-            #return 
-              xx = await resp.text()
-              x = xx.replace("[","").replace("]","").replace("'",
-"").split(",")
-            remarks = re.search("#(.*)",x[0]).group(1)
-            domain = re.search("@(.*?):",x[0]).group(1)
-            uuid = re.search("trojan://(.*?)@",x[0]).group(1)
-            today = DT.date.today()
-            later = today + DT.timedelta(days=int(1))
-            await message.edit(
-        text=(f"**━━━━━━━━━━━━━━━━**\n"
-              f"** 🍂 Trojan-ws Account 🍂** \n"
-              f"**━━━━━━━━━━━━━━━━**\n"
-              f"**🎋Remarks:** `{remarks}`\n"
-              f"**🎋Domain:** `{domain}`\n"
-              f"**🎋UUID:** `{uuid}`\n"
-              f"**🎋Port:** `443`\n"
-              f"**🎋Network:** `ws/grpc`\n"
-              f"**🎋Path:** `/trojan`\n"
-              f"**🎋ServiceName:** `trojan`\n"
-              f"**━━━━━━━━━━━━━━━━**\n"
-              f"**🎋 Trojan-ws URL:**\n"
-              f" `{x[0]}`\n"
-              f"**━━━━━━━━━━━━━━━━**\n"
-              f"**🎋 Trojan-grpc URL:**\n"
-              f" `{x[1]}`\n"
-              f"**━━━━━━━━━━━━━━━━**\n"
-              f"**🎋Exp Until:** `{later}`\n"
-              f"**━━━━━━━━━━━━━━━━**\n"
-        disable_web_page_preview=True,
-        parse_mode=enums.ParseMode.MARKDOWN
-        )
-        
+
+              
