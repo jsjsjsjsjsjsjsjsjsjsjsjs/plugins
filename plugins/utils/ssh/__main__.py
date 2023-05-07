@@ -50,7 +50,7 @@ async def ssh(message: Message):
               f"**♟ Port WS SSL :** `443`\n"
               f"** ━━━━━━━━━━━━━━━━**\n"
               f"**♟ PayLoad WS:**\n"
-              f"**`GET / HTTP/1.1[crlf]Host: {domain}[crlf]Connection: Keep-Alive[crlf]User-Agent: [ua][crlf]Upgrade: websocket[crlf][crlf]`\n"
+              f"**`GET / HTTP/1.1[crlf]Host: {d}[crlf]Connection: Keep-Alive[crlf]User-Agent: [ua][crlf]Upgrade: websocket[crlf][crlf]`\n"
               f"**━━━━━━━━━━━━━━━━**\n"
               f"**♟ Exp Until:** `{later}`\n"
               f"**━━━━━━━━━━━━━━━━**\n"),
@@ -92,7 +92,7 @@ async def ssh(message: Message):
               f"**♟ Port WS SSL :** `443`\n"
               f"** ━━━━━━━━━━━━━━━━**\n"
               f"**♟ PayLoad WS:**\n"
-              f"**`GET / HTTP/1.1[crlf]Host: {domain}[crlf]Connection: Keep-Alive[crlf]User-Agent: [ua][crlf]Upgrade: websocket[crlf][crlf]`\n"
+              f"**`GET / HTTP/1.1[crlf]Host: {d}[crlf]Connection: Keep-Alive[crlf]User-Agent: [ua][crlf]Upgrade: websocket[crlf][crlf]`\n"
               f"**━━━━━━━━━━━━━━━━**\n"
               f"**♟ Exp Until:** `30 Minutes`\n"
               f"**━━━━━━━━━━━━━━━━**\n"),
