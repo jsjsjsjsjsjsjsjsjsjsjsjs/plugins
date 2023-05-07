@@ -80,12 +80,13 @@ async def ssh(message: Message):
         async with req.get(url, headers=header) as resp:
             if resp.status != "success":
             #return
+              x = url.split(":")
               await message.edit(
               text=(f"**━━━━━━━━━━━━━━━━**\n"
               f"** ❗️ Trial SSH Account ❗️** \n"
               f"**━━━━━━━━━━━━━━━━**\n"
-              f"**♟ Username:** `{url[0].strip()}`\n"
-              f"**♟ Password:** `{url[1]}`\n"
+              f"**♟ Username:** `{x[0].strip()}`\n"
+              f"**♟ Password:** `{x[1]}`\n"
               f"**♟ Domain:** `{d}`\n"
               f"**♟ Port SSL :** `222, 443`\n"
               f"**♟ Port WS :** `80`\n"
