@@ -12,21 +12,19 @@ from userge import userge, Message, filters
 
 
 @userge.on_cmd("asupan", about="asupan")
-async def asupan(client, message):
-    yanto = await message.reply("🔎 `Search asupan...`")
-    pop = message.from_user.first_name
-    ah = message.from_user.id
-    await message.reply_video(
-        choice(
-            [
-                lol.video.file_id
-                async for lol in client.search_messages(
-                    "asupancilikbot", filter=enums.MessagesFilter.VIDEO
-                )
-            ]
+async def asupan_cmd(client: Client, message: Message):
+    m = await edit_or_reply.str(message, "`Tunggu Sebentar...`")
+    await gather(
+        client.send_video(
+            message.chat.id,
+            choice(
+                [
+                    asupan.video.file_id
+                    async for asupan in client.search_messages(
+                        "tedeasupancache", filter="video"
+                    )
+                ]
+            ),
         ),
-        False,
-        caption=f"Nih Kak [{pop}](tg://user?id={ah}) Asupannya 🥵"
+        m.delete(),
     )
-
-    await yanto.delete()
