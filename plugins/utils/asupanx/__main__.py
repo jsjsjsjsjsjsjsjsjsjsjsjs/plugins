@@ -11,11 +11,19 @@ from userge import userge, Message, filters
 
 
 @userge.on_cmd("asupan", about="asupan")
-async def asupan(client, message):
-    try:
-        resp = requests.get("https://api-tede.herokuapp.com/api/asupan/ptl").json()
-        results = f"{resp['url']}"
-        return await client.send_video(message.chat.id, video=results)
-    except Exception:
-        await message.reply_text("`404 asupan videos not found:v`")
-
+async def asupan_cmd(client: Client, message: Message):
+    m = await message.edit(message, "`Tunggu Sebentar...`")
+    await gather(
+        client.send_video(
+            message.chat.id,
+            choice(
+                [
+                    asupan.video.file_id
+                    async for asupan in client.search_messages(
+                        "tedeasupancache", filter="video"
+                    )
+                ]
+            ),
+        ),
+        m.delete(),
+    )
