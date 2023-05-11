@@ -12,7 +12,7 @@ from userge import userge, Message, filters
 
 @userge.on_cmd("asupan", about="asupan")
 async def asupan_cmd(client: Client, message: Message):
-    m = await message.edit(message, "`Tunggu Sebentar...`")
+    m = await message.reply(message, "`Tunggu Sebentar...`")
     await gather(
         client.send_video(
             message.chat.id,
