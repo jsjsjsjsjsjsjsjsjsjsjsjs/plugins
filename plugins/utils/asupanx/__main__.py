@@ -13,7 +13,7 @@ async def asupan(message: Message):
         choice(
             [
                 lol.video.file_id
-                async for lol in client.search_messages(
+                async for lol in message.client.search_messages(
                     "asupancilikbot", filter=enums.MessagesFilter.VIDEO
                 )
             ]
