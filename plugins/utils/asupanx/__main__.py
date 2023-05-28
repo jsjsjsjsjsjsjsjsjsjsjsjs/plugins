@@ -6,7 +6,7 @@ from userge import userge, Message, filters
 
 @userge.on_cmd("asupan", about="asupan")
 async def asupan(message: Message):
-    nyet = await message.reply("🔎 `Search asupan...`")
+    nyet = await message.edit("🔎 `Search asupan...`")
     pop = message.from_user.first_name
     ah = message.from_user.id
     await message.reply_video(
