@@ -6,7 +6,7 @@ from userge import userge, Message, filters
 
 @userge.on_cmd("asupan", about="asupan")
 async def asupan(message: Message):
-    yanto = await message.reply("🔎 `Search asupan...`")
+    nyet = await message.reply("🔎 `Search asupan...`")
     pop = message.from_user.first_name
     ah = message.from_user.id
     await message.reply_video(
@@ -19,7 +19,7 @@ async def asupan(message: Message):
             ]
         ),
         False,
-        caption=f"Nih Kak [{pop}](tg://user?id={ah}) Asupannya 🥵",
+        #caption=f"Nih Kak [{pop}](tg://user?id={ah}) Asupannya 🥵",
     )
 
-    await yanto.delete()
+    await nyet.delete()
