@@ -5,7 +5,7 @@ from userge import userge, Message, filters
 
 
 @userge.on_cmd("asupan", about="asupan")
-async def asupan(client, message):
+async def asupan(message: Message):
     yanto = await message.reply("🔎 `Search asupan...`")
     pop = message.from_user.first_name
     ah = message.from_user.id
