@@ -26,7 +26,7 @@ async def asupan(message: Message):
     
 @userge.on_cmd("boep", about="boep")
 async def asupan(message: Message):
-    nyet = await message.reply("🔎 `Search asupan...`")
+    nyet = await message.edit("🔎 `Search asupan...`")
     pop = message.from_user.first_name
     ah = message.from_user.id
     await message.reply_video(
