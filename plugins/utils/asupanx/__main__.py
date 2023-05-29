@@ -19,7 +19,7 @@ async def asupan(message: Message):
             ]
         ),
         False,
-        #caption=f"Nih Kak [{pop}](tg://user?id={ah}) Asupannya 🥵",
+        caption=f"Nih JING Asupannya 🥵",
     )
 
     await nyet.delete()
