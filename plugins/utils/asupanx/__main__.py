@@ -64,8 +64,9 @@ async def asupan(message: Message):
 
     await nyet.delete()
     
-@userge.on_filters(filters.me & filters.command("toktok"))
-async def asupan(message: Message):
+#@userge.on_filters(filters.me & filters.command("toktok"))
+@userge.on_cmd("toktok", about="toktok")
+async def rok(message: Message):
     nyet = await message.edit("🔎 `Search asupan...`")
     pop = message.from_user.first_name
     ah = message.from_user.id
