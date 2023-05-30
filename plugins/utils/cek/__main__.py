@@ -1,4 +1,4 @@
-from tcping import Ping
+from pythonping import ping
 from userge import userge, Message
 
 
@@ -10,10 +10,9 @@ async def ping(message: Message):
         return
     await message.edit("`Tunggu Blog !`")
     s = replied.strip().split(':')[0]
-    i = Ping('{s}')
-    z = ping.ping(3)
-    if len(list(z)) == 3:
-         await message.edit(f" `{z}\n`")
+    i = ping('{s}', count=3) 
+    if i.success:
+         await message.edit(f" `{i}\n`")
     else:
           await message.edit(f" `Not Responds`")
      
