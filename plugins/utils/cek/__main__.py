@@ -1,4 +1,5 @@
 from tcping import Ping
+from userge import userge, Message
 
 
 @userge.on_cmd("cek", about="cek server ping")
