@@ -10,7 +10,7 @@ async def ping(message: Message):
         return
     await message.edit("`Tunggu Blog !`")
     s = replied.strip().split(':')[0]
-    i = Ping('{s}', 22, 60, 3303)
+    i = Ping('{s}')
     z = ping.ping(3)
     if len(list(z)) == 3:
          await message.edit(f" `{z}\n`")
