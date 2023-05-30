@@ -23,7 +23,7 @@ async def vmess(message: Message):
         await message.edit("`JGN KOSONG BLOK!`")
         return
     elif ":" not in replied:
-        await message.edit("`USER:EXP !`")
+        await message.edit("`DOMAIN:USER:EXP !`")
         return
     await message.edit("`Tunggu Blog !`")
     async with aiohttp.ClientSession() as req:
@@ -86,6 +86,8 @@ async def vmess(message: Message):
     replied = message.input_str 
     if not replied:
         await message.edit("`JGN KOSONG BLOK!`")
+        time.sleep 1
+        await message.edit("`.trialvm DOMAINYA!`")
         return
     #elif ":" not in replied:
         #await message.edit("`USER:EXP !`")
@@ -126,13 +128,13 @@ async def vmess(message: Message):
                   f"**🔰 Path :** `isi apa aja bebas`\n"
                   f"**━━━━━━━━━━━━━━━━**\n"
                   f" **Vmess TLS link :**\n"
-                  f"**🔰 `{x[0]}`\n"
+                  f"**🔰 `{x[0].strip('"').replace(' ','')}`\n"
                   f"**━━━━━━━━━━━━━━━━**\n"
                   f" **Vmess HTTP link :**\n"
-                  f"**🔰 `{x[1].strip()}`\n"
+                  f"**🔰 `{x[1].strip('"').replace(' ','')}`\n"
                   f"**━━━━━━━━━━━━━━━━**\n"
                   f" **Vmess GRPC link :**\n"
-                  f"**🔰 `{x[2].strip()}`\n"
+                  f"**🔰 `{x[2].strip('"').replace(' ','')}`\n"
                   f"**━━━━━━━━━━━━━━━━**\n"
                   f"** Expired :** `{later}`\n"
                   f"**━━━━━━━━━━━━━━━━**"),
