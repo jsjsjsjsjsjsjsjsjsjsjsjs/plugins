@@ -86,8 +86,7 @@ async def vmess(message: Message):
     replied = message.input_str 
     if not replied:
         await message.edit("`JGN KOSONG BLOK!`")
-        time.sleep 1
-        await message.edit("`.trialvm DOMAINYA!`")
+        
         return
     #elif ":" not in replied:
         #await message.edit("`USER:EXP !`")
