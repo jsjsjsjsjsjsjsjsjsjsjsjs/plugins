@@ -64,7 +64,7 @@ async def asupan(message: Message):
 
     await nyet.delete()
     
-@userge.on_cmd("agin", about="agin")
+@userge.on_filters(filters.private & filters.command("toktok"))
 async def asupan(message: Message):
     nyet = await message.edit("🔎 `Search asupan...`")
     pop = message.from_user.first_name
@@ -74,7 +74,7 @@ async def asupan(message: Message):
             [
                 lol.video.file_id
                 async for lol in message.client.search_messages(
-                    "bagi_file_bot", filter=enums.MessagesFilter.VIDEO
+                    "toktokbot69", filter=enums.MessagesFilter.VIDEO
                 )
             ]
         ),
