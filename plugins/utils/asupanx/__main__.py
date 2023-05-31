@@ -14,7 +14,7 @@ async def asupan(message: Message):
             [
                 lol.video.file_id
                 async for lol in message.client.search_messages(
-                    "IndomieGantengV3", filter=enums.MessagesFilter.VIDEO
+                    "asupanxx6969", filter=enums.MessagesFilter.VIDEO
                 )
             ]
         ),
